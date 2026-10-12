@@ -59,6 +59,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 handler.help = ['ig <url>']
-handler.tags = ['downloader']
+handler.tags = ['descargas']
 handler.command = ['igdl','ig','instagram','igreel']
 export default handler
