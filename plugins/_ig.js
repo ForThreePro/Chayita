@@ -8,50 +8,39 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
 
   let url = (text || '').trim()
-  if (!url || !url.includes('instagram.com')) {
-    await react('💀')
-    return conn.reply(m.chat, head + `\n💀 Usa:\n*${usedPrefix+command} https://www.instagram.com/reel/DeQKKA8pJ0e/*\n━━━━━━━━━━━━━━━`, m)
-  }
+  if (!url.includes('instagram.com')) return conn.reply(m.chat, head + `\n💀 Usa: *${usedPrefix+command} https://www.instagram.com/reel/...*`, m)
 
   try {
     await react('⏳')
-
     let api = `https://api-faa.my.id/faa/igdl?url=${encodeURIComponent(url)}`
     let res = await fetch(api, { headers: { 'User-Agent': 'Mozilla/5.0' } })
     let json = await res.json()
-    console.log(json)
+    console.log('IGDL:', JSON.stringify(json).slice(0,1000))
 
-    let data = json.result || json.data || json
-    let dlUrl = null
-    let caption = ''
+    let list = json.result || json.data || json.downloads || json
 
-    // la api suele devolver array
-    if (Array.isArray(data)) dlUrl = data[0]?.url || data[0]
-    else if (data.url) dlUrl = data.url
-    else if (data.result) dlUrl = data.result
-    else if (data.download) dlUrl = data.download
-    else if (Array.isArray(data.downloads)) dlUrl = data.downloads[0]?.url
-    else if (json.url) dlUrl = json.url
-
-    if (!dlUrl) throw new Error('No se pudo extraer link: ' + JSON.stringify(json).slice(0,500))
-
-    // si es array de varios
-    let urls = Array.isArray(data) ? data : [ { url: dlUrl } ]
-    if (urls.length === 1 && typeof urls[0] === 'string') urls = [{ url: urls[0] }]
-
-    // si el dlUrl ya es directo mp4/jpg
-    if (dlUrl.startsWith('http') && (dlUrl.includes('.mp4') || dlUrl.includes('.jpg'))) {
-      await conn.sendFile(m.chat, dlUrl, 'ig.mp4', head + `\n📥 IGDL\n🔗 ${url}\n━━━━━━━━━━━━━━━`, m)
-    } else {
-      // intenta descargar y enviar
-      for (let item of urls.slice(0,5)) {
-        let link = item.url || item || dlUrl
-        if (!link?.startsWith('http')) continue
-        await conn.sendFile(m.chat, link, 'ig.mp4', head + `\n📥 IGDL\n🔗 ${url}\n━━━━━━━━━━━━━━━`, m)
-      }
+    // normaliza a array de strings
+    if (!Array.isArray(list)) {
+      if (list.url) list = [list.url]
+      else if (list.result) list = Array.isArray(list.result) ? list.result : [list.result]
+      else if (json.url) list = [json.url]
+      else list = [list]
     }
 
+    let links = []
+    for (let item of list) {
+      if (typeof item === 'string' && item.startsWith('http')) links.push(item)
+      else if (item?.url && typeof item.url === 'string') links.push(item.url)
+      else if (item?.download && typeof item.download === 'string') links.push(item.download)
+    }
+
+    if (!links.length) throw new Error('Sin links: ' + JSON.stringify(json).slice(0,500))
+
+    for (let link of links.slice(0,10)) {
+      await conn.sendFile(m.chat, link, 'ig.mp4', head + `\n📥 IGDL\n🔗 ${url}\n━━━━━━━━━━━━━━━`, m)
+    }
     await react('🎃')
+
   } catch (e) {
     console.error(e)
     await react('💀')
@@ -59,8 +48,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 }
 
-handler.help = ['igdl <url ig>']
+handler.help = ['igdl <url>']
 handler.tags = ['downloader']
 handler.command = ['igdl','ig','instagram','igreel']
-
 export default handler
