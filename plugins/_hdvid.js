@@ -11,81 +11,80 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n꒰ ◞⁺⊹ ．${fecha}\n`
   const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
 
-  let url = (text || '').trim()
-  let q = m.quoted ? m.quoted : m
-  let isVideo = q.mtype?.includes('video') || q.msg?.mimetype?.includes('video')
+  let url = (text || '').trim().split(/\s+/)[0]
+  let q = m.quoted
 
   try {
     await react('⏳')
 
-    if (!url && isVideo) {
-      let buffer = await q.download()
+    // Si responde a video
+    if (q && (!url || !url.startsWith('http'))) {
+      let mime = q.mimetype || q.msg?.mimetype || q.message?.videoMessage?.mimetype || ''
+      let buffer = null
+      try { buffer = await q.download() } catch { try { buffer = await conn.downloadMediaMessage(q) } catch {} }
+      
+      if (!buffer) throw new Error('No pude descargar el video citado')
+      
       let tmp = path.join(tmpdir(), `hdvid-${Date.now()}.mp4`)
       fs.writeFileSync(tmp, buffer)
+
       let form = new FormData()
       form.append('reqtype', 'fileupload')
       form.append('fileToUpload', fs.createReadStream(tmp))
-      let upload = await fetch('https://catbox.moe/user/api.php', { method: 'POST', body: form })
-      let link = await upload.text()
+
+      let up = await fetch('https://catbox.moe/user/api.php', { method: 'POST', body: form })
+      let link = (await up.text()).trim()
       try { fs.unlinkSync(tmp) } catch {}
-      if (!link.includes('catbox')) throw new Error('Fallo upload: ' + link)
-      url = link.trim()
+      if (!link.startsWith('http')) throw new Error('Catbox error: ' + link)
+      url = link
     }
 
     if (!url || !url.startsWith('http')) {
-      return conn.reply(m.chat, head + `\n💀 Usa: *${usedPrefix+command} https://...mp4* o responde a video`, m)
+      await react('💀')
+      return conn.reply(m.chat, head + `\n💀 Usa:\n• *${usedPrefix+command} https://files.evogb.win/krBhdi.mp4*\n• Responde a un video con *${usedPrefix+command}*\n━━━━━━━━━━━━━━━`, m)
     }
 
-    // 1. Crear job
+    // Crear job
     let apiUrl = `https://api-faa.my.id/faa/hdvid?url=${encodeURIComponent(url)}`
     let res = await fetch(apiUrl)
     let json = await res.json()
+    if (!json.job_id) throw new Error('API fallo: ' + JSON.stringify(json).slice(0,400))
 
-    if (!json.status || !json.job_id) throw new Error('API: ' + JSON.stringify(json).slice(0,500))
-    
     let job_id = json.job_id
-    let resultEndpoint = json.result // https://api-faa.my.id/faa/result?id=...
+    let resultEndpoint = json.result
+    await conn.reply(m.chat, head + `\n⏳ Escalando a HD...\n🆔 \`${job_id}\`\n⏱ Tarda 1-3 min, te aviso cuando termine\n━━━━━━━━━━━━━━━`, m)
 
-    await conn.reply(m.chat, head + `\n⏳ Mejorando a HD...\n🆔 Job: \`${job_id}\`\n⏱ Espera 10-30s\n━━━━━━━━━━━━━━━`, m)
-
-    // 2. Polling del resultado
+    // Polling largo 4 min (48 x 5s)
+    let finalBuf = null
     let finalUrl = null
-    for (let i = 0; i < 20; i++) { // 20 intentos x 3s = 60s max
-      await new Promise(r => setTimeout(r, 3000))
-      let check = await fetch(resultEndpoint)
-      let checkType = check.headers.get('content-type') || ''
-      
-      if (checkType.includes('video')) {
-        // ya es el video
-        let buf = Buffer.from(await check.arrayBuffer())
-        await conn.sendFile(m.chat, buf, 'hd.mp4', head + `\n✨ Video HD listo!\n🆔 ${job_id}\n━━━━━━━━━━━━━━━`, m)
-        await react('🎃')
-        return
-      }
-
-      if (checkType.includes('application/json')) {
-        let j = await check.json()
-        // algunos devuelven {status:'done', url:'...'} o {result:'...'}
-        if (j.status === true && j.url) finalUrl = j.url
-        else if (j.status === true && j.result) finalUrl = j.result
-        else if (j.download) finalUrl = j.download
-        else if (j.data?.url) finalUrl = j.data.url
-        else if (j.url && j.url.includes('http')) finalUrl = j.url
-
-        // si es pending, sigue
-        if (finalUrl) break
-        if (j.status === 'processing' || j.status === 'pending' || j.status === false) continue
-      } else {
+    for (let i = 0; i < 48; i++) {
+      await new Promise(r => setTimeout(r, 5000))
+      try {
+        let check = await fetch(resultEndpoint)
+        let ct = check.headers.get('content-type') || ''
+        if (ct.includes('video')) {
+          finalBuf = Buffer.from(await check.arrayBuffer())
+          break
+        }
         let txt = await check.text()
-        if (txt.trim().startsWith('http')) { finalUrl = txt.trim(); break }
-      }
+        try {
+          let j = JSON.parse(txt)
+          let out = j.url || j.result || j.download || j.data?.url
+          if (out && out.startsWith('http')) { finalUrl = out; break }
+        } catch {
+          if (txt.trim().startsWith('http')) { finalUrl = txt.trim(); break }
+        }
+      } catch {}
     }
 
-    if (!finalUrl) throw new Error('Timeout, intenta consultar manual: ' + resultEndpoint)
+    if (finalUrl && !finalBuf) {
+      let vr = await fetch(finalUrl)
+      finalBuf = Buffer.from(await vr.arrayBuffer())
+    }
 
-    let vidRes = await fetch(finalUrl)
-    let buf = Buffer.from(await vidRes.arrayBuffer())
-    await conn.sendFile(m.chat, buf, 'hd.mp4', head + `\n✨ Video mejorado a HD\n🔗 ${finalUrl}\n━━━━━━━━━━━━━━━`, m)
+    if (!finalBuf) throw new Error(`Timeout, pero tu job sigue: ${job_id}\nConsulta manual: ${resultEndpoint}\nUsa luego: ${usedPrefix}hdvid ${url}`)
+
+    await conn.sendFile(m.chat, finalBuf, `HD-${job_id}.mp4`, head + `\n✨ Video mejorado a HD\n🆔 ${job_id}\n━━━━━━━━━━━━━━━`, m)
     await react('🎃')
 
   } catch (e) {
@@ -95,7 +94,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 }
 
-handler.help = ['hdvid <url/reply>']
+handler.help = ['hdvid <url/reply video>']
 handler.tags = ['tools','video']
-handler.command = ['hdvid','hdvideo','mejorar','escalador']
+handler.command = ['hdvid','hdvideo','mejorar','escalador','hd']
 export default handler
