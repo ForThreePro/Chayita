@@ -1,63 +1,70 @@
-import fetch from 'node-fetch'
 import axios from 'axios'
-import crypto from "crypto"
-import { FormData, Blob } from "formdata-node"
-import { fileTypeFromBuffer } from "file-type"
+import FormData from 'form-data'
 
-async function uploadEvogb(content) {
-  const fileType = await fileTypeFromBuffer(content)
-  const ext = fileType?.ext || 'bin'
-  const mime = fileType?.mime || 'application/octet-stream'
-  const formData = new FormData()
-  formData.append("file", new Blob([content], { type: mime }), `${crypto.randomBytes(5).toString("hex")}.${ext}`)
-  const response = await fetch("https://evogb.win/api/upload", { method: "POST", body: formData })
-  const j = await response.json()
-  return j.url
+async function stellarUpscale(buffer, scale, key) {
+  let form = new FormData()
+  form.append('file', buffer, { filename: `upscale-${scale}.jpg`, contentType: 'image/jpeg' })
+  let url = `https://api.stellarwa.xyz/tools/upscale?method=local&scale=${scale}&key=${key}`
+
+  let { data, headers } = await axios.post(url, form, {
+    headers: form.getHeaders(),
+    responseType: 'arraybuffer',
+    timeout: 90000
+  })
+
+  // Si devuelve JSON con URL
+  let str = data.toString('utf8').slice(0, 500)
+  if (str.trim().startsWith('{')) {
+    try {
+      let json = JSON.parse(data.toString())
+      let resultUrl = json.result || json.data || json.url
+      if (resultUrl) {
+        let img = await axios.get(resultUrl, { responseType: 'arraybuffer' })
+        return Buffer.from(img.data)
+      }
+    } catch {}
+  }
+  return Buffer.from(data)
 }
 
-let handler = async (m, { conn, text }) => {
-  let q = m.quoted? m.quoted : m
+let handler = async (m, { conn, usedPrefix }) => {
+  let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  let link = text?.trim()
-
-  if (!/image/.test(mime) &&!link) {
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n꒰🦇꒱ Responde a una imagen para mejorar en HD\n\n‧˚꒰👻୭ Ejemplo:.hd (respondiendo a imagen)` }, { quoted: m })
+  if (!/image/.test(mime)) {
+    return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗜𝗖𝗢 𓆪 🍕\n*Garfield Halloween Edition*\n\n💅 Responde a una imagen con *${usedPrefix}hd*\n\n> 🍕 Hará: x2 y luego automático a x4`, m)
   }
 
+  let key = 'api-b9YNP'
+
   try {
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+    await conn.sendMessage(m.chat, { react: { text: '⏳', key: m.key } })
+    let media = await q.download()
 
-    if (!link) {
-      let media = await q.download()
-      link = await uploadEvogb(media)
-    }
+    // PASO 1: x2
+    await conn.reply(m.chat, '‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n👻 *PASO 1/2:* Mejorando a x2...', m)
+    let firstHD = await stellarUpscale(media, 2, key)
 
-    await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n꒰🦇꒱ Mejorando en HD embrujado...` }, { quoted: m })
+    // PASO 2: x2 de nuevo = x4 total
+    await conn.reply(m.chat, '‧˚꒰✨୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n🎃 *PASO 2/2:* Mejorando a x4 automático...', m)
+    let finalHD = await stellarUpscale(firstHD, 2, key)
 
-    const apiUrl = `https://api-faa.my.id/faa/hdv2?url=${encodeURIComponent(link)}`
-    const j = await fetch(apiUrl).then(r => r.json())
+    await conn.sendFile(m.chat, finalHD, 'hd-x4.jpg', 
+`‧˚꒰🎃୭ 𓆩 *HD x4 COMPLETADO* 𓆪 🍕
 
-    let resultUrl = j.result?.url || j.result?.image || j.result || j.url || j.data
-    if (typeof resultUrl === 'object') resultUrl = resultUrl.url || resultUrl.image
-    if (!resultUrl?.startsWith('http')) throw new Error('API hdv2 no devolvió link: ' + JSON.stringify(j).slice(0,300))
+> ✿ x2 → x4 automático
+> ✿ Lux X Yallico | Garfield Halloween
+> ✿ Stellar API`, m)
 
-    const res = await axios.get(resultUrl, { responseType: 'arraybuffer', headers: { 'User-Agent': 'Mozilla/5.0' } })
-    const buffer = Buffer.from(res.data)
-
-    const apiText = `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n╭───INFO ꒰🎃꒱────╮\n‧˚꒰👻୭ Tipo: HDv2 Embrujado\n‧˚꒰👻୭ API: FAA-BOT\n‧˚꒰👻୭ Peso: ${(buffer.length / 1024 / 1024).toFixed(2)} MB\n╰─────── ݁ ˖Ი𐑼⋆────╯\n\n꒰🦇꒱ Imagen mejorada en HD`
-
-    await conn.sendMessage(m.chat, { image: buffer, caption: apiText }, { quoted: m })
     await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
 
   } catch (e) {
     console.error(e)
-    await conn.sendMessage(m.chat, { react: { text: '💀', key: m.key } })
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰🦇꒱ Error: ${e.message} 💀` }, { quoted: m })
+    await conn.sendMessage(m.chat, { react: { text: '💔', key: m.key } })
+    conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n💔 Error: ${e.message}`, m)
   }
 }
 
-handler.command = ['hd']
-handler.tags = ['tools']
 handler.help = ['hd']
-handler.group = true
+handler.tags = ['tools']
+handler.command = ['hd', 'upscale', 'mejorar', 'remini']
 export default handler
