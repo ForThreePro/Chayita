@@ -34,7 +34,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗜𝗖𝗢 𓆪 🍕\n*Garfield Halloween Edition*\n\n💅 Responde a una imagen con *${usedPrefix}hd*\n\n> 🍕 Hará: x2 y luego automático a x4`, m)
   }
 
-  let key = 'api-b9YNP'
+  let key = 'proyectsV2'
 
   try {
     await conn.sendMessage(m.chat, { react: { text: '⏳', key: m.key } })
