@@ -27,36 +27,36 @@ async function faaBuffer(apiUrl) {
   })
   let url = j.result?.url || j.result?.image || j.result || j.url || j.data
   if (typeof url === 'object') url = url.url || url.image
-  if (!url ||!String(url).startsWith('http')) throw new Error('API no dio url')
+  if (!url || !String(url).startsWith('http')) throw new Error('API no dio url')
   const { data } = await axios.get(String(url).trim(), { responseType: 'arraybuffer' })
   return Buffer.from(data)
 }
 
 let handler = async (m, { conn, text, command }) => {
   let link = text?.trim()
-  let q = m.quoted? m.quoted : m
+  let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
 
-  if (!/image/.test(mime) &&!link) {
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n꒰👻꒱ Responde a una foto para convertirla en anime embrujado\n\n꒰🦇୭.${command}` }, { quoted: m })
+  if (!/image/.test(mime) && !link) {
+    return conn.sendMessage(m.chat, { text: `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹\n🎃🐭 𝗛𝗔𝗟𝗟𝗢𝗪𝗘𝗘𝗡 𝗖𝗢𝗤𝗨𝗘𝗧𝗧𝗘 🐭🎃\n\n꒰👻꒱ Responde a una foto para convertirla en anime embrujado y coquette 💅\n\n꒰🎀୭ .${command}` }, { quoted: m })
   }
 
   try {
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+    await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
 
-    if (/image/.test(mime) &&!link) {
+    if (/image/.test(mime) && !link) {
       let media = await q.download()
       link = await myCloud(media)
     }
 
-    await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰🕸️꒱ Convirtiendo a anime Halloween...` }, { quoted: m })
+    await conn.sendMessage(m.chat, { text: `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹\n\n꒰🕸️꒱ Convirtiendo a anime Halloween coquette... 🐭🎃` }, { quoted: m })
 
     const buf = await faaBuffer(`https://api-faa.my.id/faa/toanime?url=${encodeURIComponent(link)}`)
 
-    await conn.sendMessage(m.chat, { image: buf, caption: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰👻꒱ Anime Halloween listo\n‧˚꒰🦇୭ ${(buf.length/1024).toFixed(0)} KB` }, { quoted: m })
+    await conn.sendMessage(m.chat, { image: buf, caption: `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹\n\n꒰👻꒱ Anime Halloween coquette listo 💅🐭\n‧˚꒰🎀୭ ${(buf.length/1024).toFixed(0)} KB` }, { quoted: m })
 
   } catch (e) {
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰💀꒱ Error: ${e.message}` }, { quoted: m })
+    return conn.sendMessage(m.chat, { text: `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹\n\n꒰💀꒱ Error preciosa: ${e.message} 🎀` }, { quoted: m })
   }
 }
 
