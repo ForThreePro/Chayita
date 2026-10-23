@@ -6,26 +6,26 @@ moment.locale('es')
 
 const handler = async (m, { conn, command, text }) => {
   const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-  
+
   if (!text) return conn.reply(m.chat, 
-`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐘𝐓 ﹒ ${command.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
 
   ꒱ ׁ. ᘏ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 ׅ 𝆬 ָ֢ ෆ
-🎃 ࣪ ꕀ.${command} bad bunny dtmf ˚. ᵎᵎ
+🎀 ࣪ ꕀ.${command} bad bunny dtmf ˚. ᵎᵎ
 
 .⃟𖥔 ݁. 𖦹˙— \`\`EJEMPLO\`\` 🕯️ —˙𖦹.꒷
 👻 ➛.play diles - bad bunny
-🦇 ➛.play2 diles - video
+🐭 ➛.play2 diles - video
 🎃 ➛.play3 diles - video nota
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`, m)
 
   try {
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+    await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
 
     let link = text
     let info = null
@@ -45,11 +45,11 @@ const handler = async (m, { conn, command, text }) => {
     if (!j.status || !j.result) throw new Error('API FAA está caída')
 
     const downloadUrl = isAudio ? j.result.mp3 : j.result.download_url
-    const title = (j.result.title || info?.title || 'lux').replace(/[^\w\s-]/gi, '').trim()
+    const title = (j.result.title || info?.title || 'chayita').replace(/[^\w\s-]/gi, '').trim()
 
     if (info) {
       const preview = 
-`‧˚꒰🎃୭ 𓆩 𝗬𝗧 - 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗬𝗧 - 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐏𝐑𝐄𝐕𝐈𝐄𝐖 ﹒ ${command.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -63,22 +63,22 @@ const handler = async (m, { conn, command, text }) => {
 👀 ➛ Vistas: *${info.views.toLocaleString()}*
 🔗 ➛ Link: ${info.url}
 
-── *📥 ESTADO* ╏ 🦇
+── *📥 ESTADO* ╏ 🎀
 ⬇️ ➛ Enviando ${isAudio ? 'audio embrujado' : 'video maldito'}...
 👻 ➛ Espera un momento
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`.trim()
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`.trim()
       await conn.reply(m.chat, preview, m)
     }
 
     const res = await axios.get(downloadUrl, { responseType: 'arraybuffer' })
     const buffer = Buffer.from(res.data)
     const size = (buffer.length / 1024 / 1024).toFixed(2)
-    const type = isAudio ? 'AUDIO EMBRUJADO 🎃' : 'VIDEO MALDITO 🎬'
+    const type = isAudio ? 'AUDIO EMBRUJADO 🎀' : 'VIDEO MALDITO 🎬'
 
     const finalText = 
-`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 ﹒ ${type} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -92,7 +92,7 @@ const handler = async (m, { conn, command, text }) => {
 ✨ ➛ Estado: *Listo - Embrujado*
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`.trim()
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`.trim()
 
     if (command === 'play') {
       await conn.reply(m.chat, finalText, m)
@@ -109,7 +109,7 @@ const handler = async (m, { conn, command, text }) => {
 
   } catch (e) {
     console.log(e)
-    return conn.reply(m.chat, `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰💀꒱ Error: ${e.message}\n꒰👻꒱ El fantasma no encontró la canción`, m)
+    return conn.reply(m.chat, `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓_*\n\n꒰💀꒱ Error: ${e.message}\n꒰👻꒱ La Chayita no encontró la canción`, m)
   }
 }
 
