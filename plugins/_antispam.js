@@ -6,12 +6,12 @@ let handler = async (m, { conn, args, isOwner }) => {
 
   if (/on/i.test(args[0])) {
     bot.antiSpam = true
-    await conn.reply(m.chat, "✅ *Anti-Spam activado.*\n_(Solo filtra Stickers y Emojis)_", m)
+    await conn.reply(m.chat, "‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n✅ *Anti-Spam activado.*\n🎀 _(Solo filtra Stickers y Emojis)_", m)
   } else if (/off/i.test(args[0])) {
     bot.antiSpam = false
-    await conn.reply(m.chat, "❌ *Anti-Spam desactivado.*", m)
+    await conn.reply(m.chat, "‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n❌ *Anti-Spam desactivado.*", m)
   } else {
-    await conn.reply(m.chat, `📌 Uso: *.antispam on/off*`, m)
+    await conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n📌 Uso: *.antispam on/off*`, m)
   }
 }
 
@@ -49,7 +49,7 @@ handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwn
 
   if (isOwner || isROwner) {
     if (count === warnLimit) {
-      await conn.reply(m.chat, `Hey creador, tranquilo... 🌀 No satures con tanto sticker/emoji.`, m)
+      await conn.reply(m.chat, `🎀 Hey creador, tranquilo... 🐭 No satures con tanto sticker/emoji.`, m)
     }
     return 
   }
@@ -57,10 +57,10 @@ handler.before = async function (m, { conn, isAdmin, isBotAdmin, isOwner, isROwn
   if (m.isGroup && (isAdmin || isPrems || !isBotAdmin)) return  
 
   if (count === warnLimit) {
-    await conn.reply(m.chat, `᥀·࣭࣪̇˖⚔️◗ *@${sender.split('@')[0]}*, ¡Corta el spam de stickers/emojis! (${count}/${kickLimit})`, m, { mentions: [sender] })
+    await conn.reply(m.chat, `᥀·࣭࣪̇˖🎀◗ *@${sender.split('@')[0]}*, ¡Corta el spam de stickers/emojis preciosa! (${count}/${kickLimit}) 🎃`, m, { mentions: [sender] })
   } 
   else if (count >= kickLimit) {
-    await conn.reply(m.chat, `᥀·࣭࣪̇˖👺◗ *@${sender.split('@')[0]}* fue eliminado por flood de stickers/emojis.`, m, { mentions: [sender] })
+    await conn.reply(m.chat, `᥀·࣭࣪̇˖👺◗ *@${sender.split('@')[0]}* fue eliminado por flood de stickers/emojis. 🎀🐭`, m, { mentions: [sender] })
     if (m.isGroup) {
       await conn.groupParticipantsUpdate(m.chat, [sender], 'remove')
     }
