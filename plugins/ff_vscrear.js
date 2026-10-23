@@ -6,7 +6,7 @@ let vs = global.vsData = global.vsData || {}
 const crear = async (m, { conn, args, usedPrefix, command }) => {
     const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
     if (args.length < 2) {
-      let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+      let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ VS ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -15,10 +15,10 @@ const crear = async (m, { conn, args, usedPrefix, command }) => {
 
 ── *📝 USO* ╏ 🎃
 ➛${usedPrefix + command} 14 PE APOS
-👻 ➛ Fantasma dice: pon hora y país pe
+👻 ➛ Chayita dice: pon hora y país pe
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
       return conn.reply(m.chat, error, m);
     }
@@ -30,7 +30,7 @@ const crear = async (m, { conn, args, usedPrefix, command }) => {
     const pais = args[1].toUpperCase();
     const diferenciasHorarias = { CL: 2, AR: 2, PE: 0, BO: 2 };
     if (!(pais in diferenciasHorarias)) {
-      let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+      let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ PAIS ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -39,10 +39,10 @@ const crear = async (m, { conn, args, usedPrefix, command }) => {
 
 ── *📝 AVISO* ╏ 🎃
 ⚠️ ➛ Usa PE, CL, AR o BO
-💀 ➛ Fantasma solo conoce esos países
+💀 ➛ Chayita solo conoce esos países
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
       return conn.reply(m.chat, error, m);
     }
@@ -68,13 +68,13 @@ const crear = async (m, { conn, args, usedPrefix, command }) => {
 
     let diseño = {}
     if(tipo === 'FEM'){
-        diseño = { header: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n👻⃟💜 ${groupName} 💜⃟👻\nㅤ ˗ˏˋ ꒰ 🦇 ꒱ ˎˊ˗`, icon: '🦇', suplente: '🕸️' }
+        diseño = { header: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n👻⃟💜 ${groupName} 💜⃟👻\nㅤ ˗ˏˋ ꒰ 🎀 ꒱ ˎˊ˗`, icon: '🎀', suplente: '🕸️' }
     }
     if(tipo === 'MASC'){
-        diseño = { header: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀˗ˏˋ ꒰ ${groupName} ꒱ ˎˊ˗💀\n✧･ﾟ: *✧･ﾟ:* 🎃 *:･ﾟ✧*:･ﾟ✧`, icon: '🎃', suplente: '👻' }
+        diseño = { header: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀˗ˏˋ ꒰ ${groupName} ꒱ ˎˊ˗💀\n✧･ﾟ: *✧･ﾟ:* 🎃 *:･ﾟ✧*:･ﾟ✧`, icon: '🎃', suplente: '👻' }
     }
     if(tipo === 'MIXTO'){
-        diseño = { header: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n🕯️⃟✨ ${groupName} ✨⃟🕯️\n　★彡.　☆`, icon: '🕯️', suplente: '💀' }
+        diseño = { header: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🕯️⃟✨ ${groupName} ✨⃟🕯️\n　★彡.　☆`, icon: '🕯️', suplente: '💀' }
     }
 
     vs[m.chat] = vs[m.chat] || { salas: [], tipo, diseño, groupName }
@@ -97,17 +97,17 @@ const crear = async (m, { conn, args, usedPrefix, command }) => {
 const anotar = async (m, { conn, args, usedPrefix, command }) => {
     const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
     if (!vs[m.chat] ||!vs[m.chat].salas.length) {
-      return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 ➛ No hay VS activa\n👻 ➛ Fantasma dice: crea una primero\n━━━━━━━━━━━\n🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+      return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 ➛ No hay VS activa\n👻 ➛ Chayita dice: crea una primero\n━━━━━━━━━━━\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`, m)
     }
     let salaNum = parseInt(args[0]) - 1
     if(isNaN(salaNum)) salaNum = 0
 
     let sala = vs[m.chat].salas[salaNum]
-    if(!sala) return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 ➛ Sala ${args[0]} no existe\n━━━━━━━━━━━\n🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+    if(!sala) return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 ➛ Sala ${args[0]} no existe\n━━━━━━━━━━━\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`, m)
 
     let users = m.mentionedJid || []
     if(users.length === 0) {
-      return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 ➛ Menciona a alguien\nEj:.anotar 1 @pepito @juana\n━━━━━━━━━━━\n🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+      return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 ➛ Menciona a alguien\nEj:.anotar 1 @pepito @juana\n━━━━━━━━━━━\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`, m)
     }
 
     for(let user of users){
@@ -115,15 +115,15 @@ const anotar = async (m, { conn, args, usedPrefix, command }) => {
         sala.suplentes = sala.suplentes.filter(v => v!== user)
 
         if (command === 'anotar') {
-            if (sala.jugadores.length >= sala.cantidad) return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⚠️ ➛ Sala ${salaNum+1} llena\n🎃 Fantasma: ya no entra nadie más\n━━━━━━━━━━━`, m)
+            if (sala.jugadores.length >= sala.cantidad) return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⚠️ ➛ Sala ${salaNum+1} llena\n🎃 Chayita: ya no entra nadie más\n━━━━━━━━━━━`, m)
             sala.jugadores.push(user)
         }
         if (command === 'suplente') {
-            if (sala.suplentes.length >= 2) return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⚠️ ➛ Suplentes sala ${salaNum+1} llenos\n━━━━━━━━━━━`, m)
+            if (sala.suplentes.length >= 2) return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⚠️ ➛ Suplentes sala ${salaNum+1} llenos\n━━━━━━━━━━━`, m)
             sala.suplentes.push(user)
         }
         if (command === 'salir') {
-            await conn.reply(m.chat, `👻 ➛ @${user.split('@')[0]} salió de la sala ${salaNum+1} - Fantasma lo sacó`, m, { mentions: [user] })
+            await conn.reply(m.chat, `👻 ➛ @${user.split('@')[0]} salió de la sala ${salaNum+1} - Chayita lo sacó`, m, { mentions: [user] })
         }
     }
     await actualizarLista(m.chat, conn, usedPrefix)
@@ -162,7 +162,7 @@ ${todasSalas}
 │ ${d.icon} = Quiero JUGAR
 │ ${d.suplente} = Quiero SUPLENTE
 ╰───────────────────
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`;
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`;
 
     let mentions = []
     data.salas.forEach(s => mentions.push(...s.jugadores,...s.suplentes))
