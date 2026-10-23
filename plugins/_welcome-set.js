@@ -22,9 +22,9 @@ let handler = async (m, { conn, args, command }) => {
   }
 
   if (command.startsWith('set')) {
-    await react('🎃')
+    await react('🎀')
     if (!text) {
-      let uso = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+      let uso = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐌𝐄𝐍𝐒𝐀𝐉𝐄 ﹒ ${type.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -34,7 +34,7 @@ let handler = async (m, { conn, args, command }) => {
 ── *📖 USO* ╏ 🎃
 ➛.${command} <texto del mensaje>
 
-── *💡 VARIABLES* ╏ 🦇
+── *💡 VARIABLES* ╏ 🎀
 👤 ➛ @user = Menciona al usuario
 👥 ➛ @group = Nombre del grupo
 📄 ➛ @desc = Descripción del grupo
@@ -46,13 +46,13 @@ let handler = async (m, { conn, args, command }) => {
 ➛.setkick @user fue kickeado de @group
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
       return conn.sendMessage(m.chat, { text: uso }, { quoted: m })
     }
 
     chat[key] = text
-    let ok = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let ok = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐆𝐔𝐀𝐑𝐃𝐀𝐃𝐎 ﹒ ${type.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -61,13 +61,13 @@ let handler = async (m, { conn, args, command }) => {
 
 ── *📊 INFORMACIÓN* ╏ 🎃
 ✅ ➛ Mensaje de *${type}* guardado
-👻 ➛ Fantasma aprobó el texto
+👻 ➛ Chayita aprobó el texto
 
-── *📝 VISTA PREVIA* ╏ 🦇
+── *📝 VISTA PREVIA* ╏ 🎀
 💬 ➛ ${text}
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: ok }, { quoted: m })
   }
@@ -75,7 +75,7 @@ let handler = async (m, { conn, args, command }) => {
   if (command.startsWith('del')) {
     await react('🗑️')
     if (!chat[key]) {
-      let vacio = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+      let vacio = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐍𝐎 𝐂𝐎𝐍𝐅𝐈𝐆𝐔𝐑𝐀𝐃𝐎 ﹒ ${type.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -84,16 +84,16 @@ let handler = async (m, { conn, args, command }) => {
 
 ── *📝 AVISO* ╏ 🎃
 📭 ➛ No hay un mensaje de *${type}* personalizado
-💀 ➛ Fantasma dice: no hay nada configurado
+💀 ➛ Chayita dice: no hay nada configurado
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
       return conn.sendMessage(m.chat, { text: vacio }, { quoted: m })
     }
 
     delete chat[key]
-    let del = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let del = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐋𝐈𝐌𝐈𝐍𝐀𝐃𝐎 ﹒ ${type.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -103,10 +103,10 @@ let handler = async (m, { conn, args, command }) => {
 ── *📊 INFORMACIÓN* ╏ 🎃
 🗑️ ➛ Mensaje de *${type}* eliminado
 ✅ ➛ Volverá al mensaje por defecto
-👻 ➛ Fantasma borró el texto y se fue a asustar
+👻 ➛ Chayita borró el texto y se fue a asustar
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: del }, { quoted: m })
   }
