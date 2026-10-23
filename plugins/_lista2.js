@@ -25,7 +25,7 @@ let handler = async (m, { conn }) => {
 
     if (total === 0) {
         await react('📭')
-        let vacia = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let vacia = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐁𝐎𝐑𝐑𝐀𝐑 𝐋𝐈𝐒𝐓𝐀 ﹒ LISTA ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -35,10 +35,10 @@ let handler = async (m, { conn }) => {
 ── *📝 AVISO* ╏ 🎃
 📭 ➛ La lista de este grupo ya está vacía
 📭 ➛ No hay registros para borrar
-💀 ➛ Fantasma: "Ni siquiera hay dulces para borrar"
+💀 ➛ Chayita: "Ni siquiera hay dulces para borrar"
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: vacia }, { quoted: m })
     }
@@ -46,7 +46,7 @@ let handler = async (m, { conn }) => {
     await react('🗑️')
     fs.writeFileSync(db, JSON.stringify([]))
 
-    let texto = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let texto = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐁𝐎𝐑𝐑𝐀𝐃𝐎 ﹒ LISTA ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha} ${hora}
@@ -57,15 +57,15 @@ let handler = async (m, { conn }) => {
 🗑️ ➛ Se eliminaron: *${total}* registro${total > 1 ? 's' : ''}
 📅 ➛ Rango: *Lunes a Sábado*
 ⏰ ➛ Hora: *${hora}*
-👻 ➛ Fantasma se comió la lista
+👻 ➛ Chayita se comió la lista
 
-── *📦 ESTADO* ╏ 🦇
+── *📦 ESTADO* ╏ 🎀
 ✅ ➛ Lista de este grupo reiniciada
 🍬 ➛ Lista limpia como calabaza vacía
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
-*Admin*: Comando ejecutado por fantasma
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
+*Admin*: Comando ejecutado por Chayita
 ━━━━━━━━━━━`
 
     return conn.sendMessage(m.chat, { text: texto }, { quoted: m })
