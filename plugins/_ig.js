@@ -4,7 +4,7 @@ moment.locale('es')
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-  const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n꒰ ◞⁺⊹ ．${fecha}\n`
+  const head = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n꒰ ◞⁺⊹ ．${fecha}\n`
   const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
 
   let url = (text || '').trim()
@@ -49,7 +49,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.sendFile(m.chat, dl, 'ig.mp4', head + `\n📥 *IGDL*\n❤️ ${likes} | 💬 ${captionMeta.slice(0,100)}\n🔗 ${url}\n━━━━━━━━━━━━━━━`, m)
     }
 
-    await react('🎃')
+    await react('🎀')
 
   } catch (e) {
     console.error(e)
