@@ -9,7 +9,7 @@ moment.locale('es')
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
   const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
-  const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n꒰ ◞⁺⊹ ．${fecha}\n`
+  const head = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n꒰ ◞⁺⊹ ．${fecha}\n`
 
   let q = m.quoted ? m.quoted : m
   let txt = text || q.text || q.caption || ''
@@ -38,7 +38,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let stickerBuffer = fs.readFileSync(tmpOutput)
     await conn.sendMessage(m.chat, { sticker: stickerBuffer }, { quoted: m })
     fs.unlinkSync(tmpInput); fs.unlinkSync(tmpOutput)
-    await react('🎃')
+    await react('🎀')
   } catch (e) {
     await react('💀')
     await m.reply(head + `\n💀 Error al generar sticker embrujado`, m)
