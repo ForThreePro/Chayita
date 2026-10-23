@@ -7,8 +7,8 @@ const api = { url: 'https://api.stellarwa.xyz', key: 'proyectsV2' }
 
 let handler = async (m, { conn, text, usedPrefix, command, args }) => {
     const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-    const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n꒰ ◞⁺⊹ ．${fecha}\n`
-    const footer = `\n━━━━━━━━━━━\n🎃 *LUX X YALLICO - HALLOWEEN* 🦇`
+    const head = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n꒰ ◞⁺⊹ ．${fecha}\n`
+    const footer = `\n━━━━━━━━━━━\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`
     const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
     const error = (msg) => conn.sendMessage(m.chat, { text: head + `\n💀 ${msg}` + footer }, { quoted: m })
 
@@ -21,7 +21,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
             let img = await m.quoted.download()
             let stiker = await addExif(img, packname || '', author || '')
             await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-            await react('🎃')
+            await react('🎀')
         } catch { await react('💀'); error('Error al embrujar') }
         return
     }
@@ -35,7 +35,7 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
             let img = await q.download()
             let stiker = await sticker(img, false, '', '')
             await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
-            await react('🎃')
+            await react('🎀')
         } catch { await react('💀'); error('Error al crear sticker embrujado') }
         return
     }
@@ -54,19 +54,19 @@ let handler = async (m, { conn, text, usedPrefix, command, args }) => {
             const buffer = Buffer.from(json.data.result.image, 'base64')
             let stiker = await sticker(buffer, false, '', '')
             await conn.sendFile(m.chat, stiker, 'quotly.webp', '', m)
-            await react('🎃')
+            await react('🎀')
         } catch { await react('💀'); error('Error al generar') }
         return
     }
 
     if (['emojimix','mix'].includes(command)) {
         let [emoji1, emoji2] = text.split(/[&+\s]+/)
-        if (!emoji1 || !emoji2) { await react('💀'); return error(`Uso: *${usedPrefix}emojimix* 🎃+🦇`) }
+        if (!emoji1 || !emoji2) { await react('💀'); return error(`Uso: *${usedPrefix}emojimix* 🎀+🐭`) }
         try {
             await react('⏳')
             let url = `${api.url}/tools/emojimix?emoji1=${encodeURIComponent(emoji1)}&emoji2=${encodeURIComponent(emoji2)}&key=${api.key}`
             await conn.sendMessage(m.chat, { sticker:{url} }, { quoted:m })
-            await react('🎃')
+            await react('🎀')
         } catch(e){ await react('💀'); error('Error al generar emojimix embrujado') }
     }
 }
