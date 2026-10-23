@@ -14,7 +14,7 @@ let handler = async (m, { conn, text }) => {
 
     if (!text) {
         await react('💀')
-        let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -23,19 +23,19 @@ let handler = async (m, { conn, text }) => {
 
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ ¿Qué deseas buscar en YouTube?
-👻 ➛ Fantasma dice: escribe algo pe
+👻 ➛ Chayita dice: escribe algo pe
 
-── *💡 EJEMPLO* ╏ 🦇
+── *💡 EJEMPLO* ╏ 🎀
 ➛.ytsearch Thriller Halloween
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: error }, { quoted: m })
     }
 
-    await react('🎃')
-    await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    await react('🎀')
+    await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐁𝐔𝐒𝐂𝐀𝐍𝐃𝐎 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -45,10 +45,10 @@ let handler = async (m, { conn, text }) => {
 ── *📊 ESTADO* ╏ 🎃
 🔍 ➛ Buscando: *${text}*
 ⏳ ➛ Invocando a StellarWA...
-👻 ➛ Fantasma buscando entre niebla
+👻 ➛ Chayita buscando entre niebla
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
 
     try {
@@ -56,7 +56,7 @@ let handler = async (m, { conn, text }) => {
 
         if (!data.status ||!data.result || data.result.length === 0) {
             await react('💀')
-            let vacio = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let vacio = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐒𝐈𝐍 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -65,10 +65,10 @@ let handler = async (m, { conn, text }) => {
 
 ── *📝 AVISO* ╏ 🎃
 📭 ➛ No se encontraron resultados para: *${text}*
-💀 ➛ Fantasma no encontró ni huesos
+💀 ➛ Chayita no encontró ni huesos
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             return conn.sendMessage(m.chat, { text: vacio }, { quoted: m })
         }
@@ -81,7 +81,7 @@ let handler = async (m, { conn, text }) => {
 👤 ➛ Canal: *${v.author}*
 🔗 ➛ ${v.url}`).join('\n\n')
 
-        let caption = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let caption = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐓𝐎𝐏 𝟓 ﹒ RESULTADOS ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -94,25 +94,25 @@ let handler = async (m, { conn, text }) => {
 ${res}
 
 ━━━━━━━━━━━
-── *📋 INFORMACIÓN* ╏ 🦇
+── *📋 INFORMACIÓN* ╏ 🎀
 👤 ➛ Solicitado por: ${user}
 👥 ➛ Grupo: *${groupName}*
-👻 ➛ Buscado por fantasma
+👻 ➛ Buscado por Chayita
 
 ── *💡 TIP* ╏ 🕯️
 ➛.ytmp4 + link
 ➛.ytmp3 + link
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
 
         await conn.sendMessage(m.chat, { text: caption, mentions: [m.sender] }, { quoted: m })
-        await react('🎃')
+        await react('🎀')
     } catch (e) { 
         console.error(e)
         await react('💀')
-        let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -122,10 +122,10 @@ ${res}
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ Error al conectar con StellarWA
 🔧 ➛ Intenta más tarde
-👻 ➛ Fantasma dice: el api se fue al más allá
+👻 ➛ Chayita dice: el api se fue al más allá
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         conn.sendMessage(m.chat, { text: error }, { quoted: m })
     }
