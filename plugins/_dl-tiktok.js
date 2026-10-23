@@ -12,7 +12,7 @@ var handler = async (m, { conn, args }) => {
   const ownerNum = global.owner?.[0]?.[0] || '51927174369'
 
   if (!args[0]) {
-    let menuUso = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let menuUso = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒 ﹒ TIKTOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -26,9 +26,9 @@ var handler = async (m, { conn, args }) => {
 ── *📝 DESCRIPCIÓN* ╏ 🎃
 📱 ➛ Descarga videos de TikTok sin marca de agua
 📱 ➛ Con botones interactivos
-👻 ➛ Fantasma viendo TikTok en Halloween
+👻 ➛ Chayita viendo TikTok en Halloween
 
-── *📖 USO* ╏ 🦇
+── *📖 USO* ╏ 🎀
 ➛.*tiktok* <link de tiktok>
 ➛.*tt* <link de tiktok>
 
@@ -41,7 +41,7 @@ var handler = async (m, { conn, args }) => {
 📱 ➛ www.tiktok.com
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 *Owner*: @${ownerNum}
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: menuUso, mentions: [ownerNum + '@s.whatsapp.net'] }, { quoted: m })
@@ -50,7 +50,7 @@ var handler = async (m, { conn, args }) => {
   const url = args[0]
   if (!url.match(/(https?:\/\/)?(www\.)?(vm\.|vt\.|www\.)?tiktok\.com\//)) {
     await react(conn, m, '💀')
-    let menuError = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let menuError = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ TIKTOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -59,20 +59,20 @@ var handler = async (m, { conn, args }) => {
 
 ── *📝 DESCRIPCIÓN* ╏ 🎃
 ❌ ➛ El enlace no es válido
-👻 ➛ Fantasma: "Eso no es TikTok, es trampa"
+👻 ➛ Chayita: "Eso no es TikTok, es trampa"
 
-── *📖 USO* ╏ 🦇
+── *📖 USO* ╏ 🎀
 ➛ Solo links de: *tiktok.com*
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: menuError }, { quoted: m })
   }
 
   try {
-    await react(conn, m, "🎃")
-    await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    await react(conn, m, "🎀")
+    await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐏𝐑𝐎𝐂𝐄𝐒𝐀𝐍𝐃𝐎 ﹒ TIKTOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -83,10 +83,10 @@ var handler = async (m, { conn, args }) => {
 🔍 ➛ Analizando link embrujado...
 📥 ➛ Obteniendo video HD maldito...
 ⬇️ ➛ Preparando descarga sin marca...
-👻 ➛ Fantasma buscando el botón...
+👻 ➛ Chayita buscando el botón...
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
 
     const tiktokData = await tiktokdl(url)
@@ -102,7 +102,7 @@ var handler = async (m, { conn, args }) => {
       key: { remoteJid: m.chat, participant: '0@s.whatsapp.net', fromMe: false },
       message: {
         locationMessage: {
-          name: `🎃 LUX X YALLICO - HALLOWEEN EDITION 🦇`,
+          name: `🎀 CHAYITA BOT - HALLOWEEN COQUETTE 🐭`,
           jpegThumbnail: Buffer.from(await (await fetch('https://files.catbox.moe/dsgmid.jpg')).arrayBuffer())
         }
       }
@@ -115,7 +115,7 @@ var handler = async (m, { conn, args }) => {
         message: {
           interactiveMessage: proto.Message.InteractiveMessage.fromObject({
             body: {
-              text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+              text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎 ﹒ TIKTOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -127,13 +127,13 @@ var handler = async (m, { conn, args }) => {
 👤 ➛ Autor: *@${author}*
 ❤️ ➛ Likes: *${likes}*
 💬 ➛ Comentarios: *${comments}*
-👻 ➛ Fantasma le dio like
+👻 ➛ Chayita le dio like
 
-── *📥 DESCARGA* ╏ 🦇
+── *📥 DESCARGA* ╏ 🎀
 ⬇️ ➛ Video sin marca de agua
 🍬 ➛ Listo para ver en noche de brujas`
             },
-            footer: { text: 'Sin marca de agua ✨ | LUX X YALLICO - HALLOWEEN EDITION 🎃' },
+            footer: { text: 'Sin marca de agua ✨ | CHAYITA BOT - HALLOWEEN COQUETTE 🎀' },
             header: { hasMediaAttachment: true, videoMessage: media.videoMessage },
             nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
               buttons: [
@@ -147,12 +147,12 @@ var handler = async (m, { conn, args }) => {
     }, { quoted: businessHeader })
 
     await conn.relayMessage(m.chat, msg.message, { messageId: msg.key.id })
-    await react(conn, m, "🎃")
+    await react(conn, m, "🎀")
 
   } catch (error) {
     await react(conn, m, "💀")
     const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-    let menuErr = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let menuErr = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ TIKTOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -166,10 +166,10 @@ var handler = async (m, { conn, args }) => {
 ── *💡 SOLUCIÓN* ╏ 🕯️
 🔧 ➛ Verifica que el video sea público
 🔧 ➛ Intenta con otro link
-🎃 ➛ Fantasma dice: prueba otra vez
+🎃 ➛ Chayita dice: prueba otra vez
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: menuErr }, { quoted: m })
   }
