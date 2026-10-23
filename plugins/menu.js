@@ -11,10 +11,10 @@ anime: 'ANIME', internet: 'INTERNET', image: 'IMÁGENES'
 }
 
 const ICONOS_CATEGORIA = {
-info: '🎃', descargas: '🦇', buscadores: '🔮', grupo: '👻',
+info: '🎀', descargas: '🐭', buscadores: '🔮', grupo: '👻',
 fun: '💀', ia: '🧙', tools: '🕸️', sticker: '🕷️',
-config: '⚰️', owner: '👑', main: '🕯️', game: '🎃',
-rpg: '⚔️', anime: '🍭', internet: '🌙', image: '🦇'
+config: '⚰️', owner: '👑', main: '🕯️', game: '🎀',
+rpg: '⚔️', anime: '🍭', internet: '🌙', image: '🐭'
 }
 
 const TOP_COMANDOS = ['.play', '.sticker', '.ia', '.menu', '.ytmp4']
@@ -27,14 +27,14 @@ const FRASES_HALLOWEEN = [
 "Hoy toca asustar hasta amanecer",
 "Si no hay dulces, hay truco",
 "La brujería es mi superpoder",
-"Lux X Yallico - Donde los fantasmas mandan 👻",
+"Chayita Bot - Donde los fantasmas mandan 👻",
 "Más oscuro que la noche de Halloween"
 ]
 
 let handler = async (m, { conn }) => {
 try {
 let start = performance.now()
-await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
 
 const fecha = moment.tz('America/Lima').format('dddd')
 const fecha2 = moment.tz('America/Lima').format('DD [de] MMMM [de] YYYY')
@@ -61,9 +61,9 @@ for (const plugin of plugins) {
 }
 
 const userName = m.pushName || 'Usuario'
-const IMG_MENU = 'https://files.evogb.win/KMrBYL.jpg'
+const IMG_MENU = 'https://files.evogb.win/MklTGD.jpg'
 const ping = Math.round(performance.now() - start)
-const ownerNum = global.owner?.[0]?.[0] || '51927174369'
+const ownerNum = global.owner?.[0]?.[0] || '541128198851'
 const CANAL_LINK = 'https://whatsapp.com/channel/0029Vb8emrOJuyACodGSbP0z'
 
 const hourNow = moment.tz('America/Lima').hour()
@@ -71,35 +71,31 @@ let saludo = hourNow < 12? 'Buenos días' : hourNow < 18? 'Buenas tardes' : 'Bue
 const fraseRandom = FRASES_HALLOWEEN[Math.floor(Math.random() * FRASES_HALLOWEEN.length)]
 const estadoBot = dias > 0? `Embrujado • ${dias}d ${horas}h` : `Embrujado • ${horas}h ${minutos}m`
 
-const EMOJIS_EXTRA = ['🎃','🦇','💀','👻','🕷️','🕯️','🍭','🔮','⚰️','🧟']
+const EMOJIS_EXTRA = ['🎀','🐭','💀','👻','🕷️','🕯️','🍭','🔮','⚰️','🧟']
 let emojiIndex = 0
 
-let menuTexto = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+let menuTexto = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
-⤷ ┇ 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 ﹒ 3.0 HALLOWEEN EDITION ：✿ 。
+⤷ ┇ 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 ﹒ 3.0 HALLOWEEN COQUETTE ：✿ 。
 ꒰ ◞⁺⊹ ．estado: *${estadoBot}* • Ping: ${ping}ms
 
   ꒱ ׁ. ᘏ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 ׅ 𝆬 ָ֢ ෆ
 👻 ࣪ ꕀ ${saludo} @${userName}. ˚. ᵎᵎ
 > *"${fraseRandom}"*
 
-🕸️ *CANAL OFICIAL*
-${CANAL_LINK}
-> _Únete para recibir hechizos_
-
-──🎃 *TOP COMANDOS* ╏ Más usados
+──🎀 *TOP COMANDOS* ╏ Más usados
 ${TOP_COMANDOS.map((c,i) => `${i+1}. ${c}`).join(' | ')}
 
-──🦇 *INFORMACION* ╏ 👻
+──🐭 *INFORMACION* ╏ 👻
 *Almas*: ${totalUsers} | *Hechizos*: ${pluginsCount}
-*Owner*: @${ownerNum}
+*Owner*: @${ownerNum} (Chayita)
 *RAM*: ${ram}mb/${totalram}gb
-*Edición*: Lux X Yallico x Halloween
+*Edición*: Chayita Bot x Halloween Coquette
 
  ׅ 埃斯 : 𝖲𝖨𝖲𝖳𝖤𝖬𝖠 ﹙ 💻 ﹚
 *${fecha}* ─ ${fecha2} ─ ${hora}
 
-> ❍ Usa. antes de cada comando 🎃
+> ❍ Usa. antes de cada comando 🎀
 
 `
 
@@ -122,13 +118,12 @@ for (const tag of tagsOrdenados) {
 }
 
 menuTexto += `━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
-*Owner*: @${ownerNum}
-*Version*: 3.0 HALLOWEEN EDITION
-*${CANAL_LINK}*
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
+*Owner*: @${ownerNum} (Chayita)
+*Version*: 3.0 HALLOWEEN COQUETTE
 
-> "Truco o trato, dame dulces" 🎃
-> "Lux X Yallico - Donde los fantasmas mandan"
+> "Truco o trato, dame dulces" 🎀
+> "Chayita Bot - Donde los fantasmas mandan"
 ━━━━━━━━━━━`
 
 await conn.sendMessage(m.chat, {
@@ -138,7 +133,7 @@ await conn.sendMessage(m.chat, {
 }, { quoted: m })
 
 } catch (e) {
-await conn.sendMessage(m.chat, { text: `💀 *ERROR FANTASMA*: ${e.message}\n🎃 Se le cayó la calabaza al bot...` }, { quoted: m })
+await conn.sendMessage(m.chat, { text: `💀 *ERROR FANTASMA*: ${e.message}\n🎀 Se le cayó la calabaza al bot...` }, { quoted: m })
 }
 }
 
