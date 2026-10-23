@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
     if (m.sender !== ownerNumber) {
         await react('💀')
         return conn.sendMessage(m.chat, { 
-            text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐒𝐈𝐒𝐓𝐄𝐌𝐀 ﹒ ACCESO DENEGADO ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -30,7 +30,7 @@ let handler = async (m, { conn }) => {
     if (!m.isGroup) return m.reply('👻 Solo en grupos pe')
 
     try {
-        await react('🎃')
+        await react('🎀')
         let groupMetadata = await conn.groupMetadata(m.chat)
         let botId = conn.user.jid
         let botLid = conn.user.lid || ''
@@ -48,11 +48,11 @@ let handler = async (m, { conn }) => {
 
         if (!toKick.length) {
             await react('💀')
-            return m.reply('👻 No hay nadie para exorcizar pe, solo estamos tú y yo 🎃')
+            return m.reply('👻 No hay nadie para exorcizar pe, solo estamos tú y yo 🎀')
         }
 
         await conn.sendMessage(m.chat, { 
-            text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐆𝐑𝐔𝐏𝐎 ﹒ KICKALL INICIADO ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -76,7 +76,7 @@ let handler = async (m, { conn }) => {
 
         await react('🔥')
         await conn.sendMessage(m.chat, { 
-            text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐆𝐑𝐔𝐏𝐎 ﹒ COMPLETADO ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -89,7 +89,7 @@ let handler = async (m, { conn }) => {
 👑 ➛ Quedan: *Tú y yo (bot)*
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━` 
         })
 
