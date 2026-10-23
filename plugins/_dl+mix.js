@@ -46,19 +46,19 @@ let handler = async (m, { conn, text }) => {
 
   if (/image/.test(mime) &&!link) {
     try {
-      await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
-      await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n꒰👻꒱ Subiendo al cementerio evogb.win... 🕸️` }, { quoted: m })
+      await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
+      await conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍 𝐂𝐎𝐐𝐔𝐄𝐓𝐓𝐄_*\n\n꒰👻꒱ Subiendo al cementerio evogb.win... 🕸️🎀` }, { quoted: m })
       let media = await q.download()
       link = await myCloud(media)
     } catch (e) {
       await conn.sendMessage(m.chat, { react: { text: '💀', key: m.key } })
-      return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰💀꒱ Error al subir: ${e.message}` }, { quoted: m })
+      return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓_*\n\n꒰💀꒱ Error al subir: ${e.message}` }, { quoted: m })
     }
   }
 
   if (!link) {
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*\n\n꒰👻꒱ Responde a una imagen o manda link para exorcizar el fondo\n\n‧˚꒰🦇୭ Ejemplo:.removebg https://link.jpg` }, { quoted: m })
+    await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
+    return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍 𝐂𝐎𝐐𝐔𝐄𝐓𝐓𝐄_*\n\n꒰👻꒱ Responde a una imagen o manda link para exorcizar el fondo\n\n‧˚꒰🎀୭ Ejemplo:.removebg https://link.jpg` }, { quoted: m })
   }
 
   try {
@@ -66,30 +66,30 @@ let handler = async (m, { conn, text }) => {
 
     const buffer = await faaBuffer(`https://api-faa.my.id/faa/removebg?url=${encodeURIComponent(link)}`)
 
-    const apiText = `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍_*
+    const apiText = `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓 - 𝐇𝐀𝐋𝐋𝐎𝐖𝐄𝐄𝐍 𝐂𝐎𝐐𝐔𝐄𝐓𝐓𝐄_*
 
 ╭───INFO ꒰👻꒱────╮
-‧˚꒰🦇୭ Tipo: Removebg Embrujado
-‧˚꒰🦇୭ Origen: evogb.win
-‧˚꒰🦇୭ API: FAA-BOT
-‧˚꒰🦇୭ Peso: ${(buffer.length / 1024).toFixed(0)} KB
+‧˚꒰🎀୭ Tipo: Removebg Embrujado Coquette
+‧˚꒰🎀୭ Origen: evogb.win
+‧˚꒰🎀୭ API: FAA-BOT
+‧˚꒰🎀୭ Peso: ${(buffer.length / 1024).toFixed(0)} KB
 ╰─────── ݁ ˖Ი𐑼⋆────╯
 
-꒰🎃꒱ Fondo exorcizado - listo para Halloween`
+꒰🎀꒱ Fondo exorcizado - listo para Halloween`
 
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+    await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
     await conn.sendMessage(m.chat, { image: buffer, caption: apiText }, { quoted: m })
-    await conn.sendMessage(m.chat, { document: buffer, mimetype: 'image/png', fileName: `removebg-lux-halloween.png` }, { quoted: m })
+    await conn.sendMessage(m.chat, { document: buffer, mimetype: 'image/png', fileName: `removebg-chayita-halloween.png` }, { quoted: m })
 
   } catch (e) {
     console.error(e)
     await conn.sendMessage(m.chat, { react: { text: '💀', key: m.key } })
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰💀꒱ Error: ${e.message}` }, { quoted: m })
+    return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ *_𝐂𝐇𝐀𝐘𝐈𝐓𝐀 𝐁𝐎𝐓_*\n\n꒰💀꒱ Error: ${e.message}` }, { quoted: m })
   }
 }
 
 handler.command = ['removebg', 'nobg', 'quitarfondo']
-handler.tags = ['tools', 'halloween']
+handler.tags = ['tools']
 handler.help = ['removebg']
 handler.group = true
 export default handler
