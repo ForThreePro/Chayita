@@ -1,3 +1,4 @@
+
 import moment from 'moment-timezone'
 moment.locale('es')
 
@@ -14,11 +15,11 @@ export async function before(m, { conn }) {
 
         const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
         let author = update.author || update.participants[0]
-        let catalogoImg = { url: 'https://files.evogb.win/KMrBYL.jpg' }
+        let catalogoImg = { url: 'https://files.evogb.win/MklTGD.jpg' }
 
         for (let user of update.participants) {
           if (update.action === 'promote') {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ ADMIN ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -28,10 +29,10 @@ export async function before(m, { conn }) {
 ── *👤 ACCION* ╏ 🎃
 👑 ➛ Por: @${author.split('@')[0]}
 🎖️ ➛ Nuevo admin: @${user.split('@')[0]}
-👻 ➛ Fantasma dice: "Que cuide el cementerio"
+🐭 ➛ Chayita dice: "Que cuide el cementerio coquette"
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
@@ -41,7 +42,7 @@ export async function before(m, { conn }) {
           }
 
           if (update.action === 'demote') {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ ADMIN ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -51,10 +52,10 @@ export async function before(m, { conn }) {
 ── *👤 ACCION* ╏ 🎃
 👑 ➛ Por: @${author.split('@')[0]}
 💔 ➛ Ex-admin: @${user.split('@')[0]}
-💀 ➛ Fantasma: "Se quedó sin dulces"
+💀 ➛ Chayita: "Se quedó sin dulces"
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
@@ -76,10 +77,10 @@ export async function before(m, { conn }) {
 
           const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
           let author = update.author || 'Desconocido'
-          let catalogoImg = { url: 'https://files.evogb.win/KMrBYL.jpg' }
+          let catalogoImg = { url: 'https://files.evogb.win/MklTGD.jpg' }
 
           if (update.subject) {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ NOMBRE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -89,10 +90,10 @@ export async function before(m, { conn }) {
 ── *👤 ACCION* ╏ 🎃
 👑 ➛ Por: @${author.split('@')[0]}
 📝 ➛ Nuevo: *${update.subject}*
-👻 ➛ Fantasma: "Odio los lunes y los cambios"
+🐭 ➛ Chayita: "Odio los lunes y los cambios"
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
@@ -102,7 +103,7 @@ export async function before(m, { conn }) {
           }
 
           if (update.desc) {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ DESCRIPCION ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -115,7 +116,7 @@ export async function before(m, { conn }) {
 🕸️ ➛ Descripción embrujada
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
@@ -125,7 +126,7 @@ export async function before(m, { conn }) {
           }
 
           if (update.icon || update.picture) {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ FOTO ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -135,10 +136,10 @@ export async function before(m, { conn }) {
 ── *👤 ACCION* ╏ 🎃
 👑 ➛ Por: @${author.split('@')[0]}
 🖼️ ➛ Foto cambiada
-👻 ➛ Fantasma revisando nueva foto
+🐭 ➛ Chayita revisando nueva foto
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
@@ -148,7 +149,7 @@ export async function before(m, { conn }) {
           }
 
           if (update.inviteCode) {
-            let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐓𝐄𝐂𝐓 ﹒ LINK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -161,7 +162,7 @@ export async function before(m, { conn }) {
 🎃 ➛ Link fresco como calabaza
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             await conn.sendMessage(update.id, {
               image: catalogoImg,
