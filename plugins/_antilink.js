@@ -2,14 +2,15 @@ const linkRegex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
 const channelLinkRegex = /whatsapp\.com\/channel\/([0-9A-Za-z]{20,30})/i
 
 const handler = async (m, { conn, args, isAdmin, isOwner }) => {
-    if (!isAdmin &&!isOwner) throw "‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎_*\n\n꒰👻꒱ Solo los admins pueden usar este hechizo"
+    if (!isAdmin && !isOwner) throw "‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹\n\n꒰👻꒱ Solo los admins pueden usar este hechizo coquette 🎀"
 
     let chat = global.db.data.chats[m.chat]
     if (!chat) global.db.data.chats[m.chat] = {}
 
     if (/on/i.test(args[0])) {
         chat.antiLink = true
-        await conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        await conn.reply(m.chat, `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹
+🎃🐭 𝗛𝗔𝗟𝗟𝗢𝗪𝗘𝗘𝗡 𝗖𝗢𝗤𝗨𝗘𝗧𝗧𝗘 🐭🎃
 
 ⤷ ┇ 𝐀𝐍𝐓𝐈-𝐋𝐈𝐍𝐊 ﹒ 𝐎𝐍 ：✿ 。
 ꒰ ◞⁺⊹ ．Activado
@@ -18,13 +19,14 @@ const handler = async (m, { conn, args, isAdmin, isOwner }) => {
 
 ── *📊 ESTADO* ╏ 🎃
 ✅ ➛ Anti-Link: *Activado*
-👻 ➛ Los enlaces serán exorcizados
+🐭 ➛ Los enlaces serán exorcizados
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+🎀🐭 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭🎀`, m)
     } else if (/off/i.test(args[0])) {
         chat.antiLink = false
-        await conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        await conn.reply(m.chat, `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹
+🎃🐭 𝗛𝗔𝗟𝗟𝗢𝗪𝗘𝗘𝗡 𝗖𝗢𝗤𝗨𝗘𝗧𝗧𝗘 🐭🎃
 
 ⤷ ┇ 𝐀𝐍𝐓𝐈-𝐋𝐈𝐍𝐊 ﹒ 𝐎𝐅𝐅 ：✿ 。
 ꒰ ◞⁺⊹ ．Desactivado
@@ -33,17 +35,18 @@ const handler = async (m, { conn, args, isAdmin, isOwner }) => {
 
 ── *📊 ESTADO* ╏ 🎃
 ❌ ➛ Anti-Link: *Desactivado*
-🦇 ➛ Los enlaces están permitidos
+🎀 ➛ Los enlaces están permitidos
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+🎀🐭 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭🎀`, m)
     } else {
-        await conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        await conn.reply(m.chat, `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 💖🎀꒱₊˚⊹
+🎃🐭 𝗛𝗔𝗟𝗟𝗢𝗪𝗘𝗘𝗡 𝗖𝗢𝗤𝗨𝗘𝗧𝗧𝗘 🐭🎃
 
 ⤷ ┇ 𝐀𝐍𝐓𝐈-𝐋𝐈𝐍𝐊 ﹒ 𝐔𝐒𝐎 ：✿ 。
 
   ꒱ ׁ. ᘏ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 ׅ 𝆬 ָ֢ ෆ
-🎃 ࣪ ꕀ.antilink on/off ˚. ᵎᵎ
+🎀 ࣪ ꕀ.antilink on/off ˚. ᵎᵎ
 
 .⃟𖥔 ݁. 𖦹˙— \`\`USO\`\` 🕯️ —˙𖦹.꒷
 
@@ -52,7 +55,7 @@ const handler = async (m, { conn, args, isAdmin, isOwner }) => {
 👻 ➛.antilink off
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, m)
+🎀🐭 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭🎀`, m)
     }
 }
 
@@ -61,42 +64,42 @@ handler.tags = ['config']
 handler.command = /^(antilink|antilinks)$/i
 
 handler.before = async function (m, { conn, isAdmin, isBotAdmin }) {
-    if (!m.isGroup) return!0
+    if (!m.isGroup) return !0
     const botNumber = conn.user.jid
-    if (m.sender === botNumber || m.fromMe || m.isBaileys) return!0
+    if (m.sender === botNumber || m.fromMe || m.isBaileys) return !0
 
     const chat = global.db.data.chats[m.chat]
-    if (!chat?.antiLink) return!0
+    if (!chat?.antiLink) return !0
 
     const isGroupLink = linkRegex.exec(m.text)
     const isChannelLink = channelLinkRegex.exec(m.text)
 
-    if ((isGroupLink || isChannelLink) &&!isAdmin) {
-        if (!isBotAdmin) return!0
+    if ((isGroupLink || isChannelLink) && !isAdmin) {
+        if (!isBotAdmin) return !0
 
         if (isGroupLink) {
             const groupCode = await conn.groupInviteCode(m.chat).catch(() => null)
-            if (groupCode && m.text.includes(groupCode)) return!0
+            if (groupCode && m.text.includes(groupCode)) return !0
         }
 
         await conn.sendMessage(m.chat, { delete: m.key })
         await conn.reply(
             m.chat,
-            `‧˚꒰🎃୭ *_𝐋𝐔𝐗 𝐗 𝐘𝐀𝐋𝐋𝐈𝐂𝐎 - 𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊_*
+            `‧˚₊꒰🎀💖 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 - 𝗔𝗡𝗧𝗜𝗟𝗜𝗡𝗞 𓆪 💖🎀꒱₊˚⊹
 
 ꒰💀꒱ *Enlace prohibido detectado*
 ꒰👻꒱ @${m.sender.split('@')[0]} intentó invocar un portal prohibido
 
-꒰🦇꒱ *Acción: Exorcismo del grupo*
+꒰🎀꒱ *Acción: Exorcismo coquette del grupo*
 ꒰🕸️꒱ No se permiten enlaces en Halloween
 
-> Trick or... ¡BAN! 🎃`,
+> Trick or... ¡BAN! 🎃🎀`,
             m,
             { mentions: [m.sender] }
         )
         return await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     }
-    return!0
+    return !0
 }
 
 export default handler
