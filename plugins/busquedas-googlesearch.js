@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
 
     if (!text) {
         await react('💀')
-        let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ BUSCAR ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -22,19 +22,19 @@ let handler = async (m, { conn, text }) => {
 
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ ¿Qué quieres buscar?
-👻 ➛ Fantasma: dime que buscar pe
+👻 ➛ Chayita: dime que buscar pe
 
-── *💡 EJEMPLO* ╏ 🦇
+── *💡 EJEMPLO* ╏ 🎀
 ➛.google halloween embrujado
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: error }, { quoted: m })
     }
 
-    await react('🎃')
-    await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    await react('🎀')
+    await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐁𝐔𝐒𝐂𝐀𝐍𝐃𝐎 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -44,10 +44,10 @@ let handler = async (m, { conn, text }) => {
 ── *📊 ESTADO* ╏ 🎃
 🔍 ➛ Buscando: *${text}*
 ⏳ ➛ Invocando espíritus...
-👻 ➛ Fantasma buscando con susto
+👻 ➛ Chayita buscando con susto
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
 
     try {
@@ -56,7 +56,7 @@ let handler = async (m, { conn, text }) => {
 
         if (!results.length) {
             await react('💀')
-            let vacio = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            let vacio = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐒𝐈𝐍 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ﹒ BUSCAR ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -65,15 +65,15 @@ let handler = async (m, { conn, text }) => {
 
 ── *📝 AVISO* ╏ 🎃
 📭 ➛ No encontré resultados para: *${text}*
-💀 ➛ Fantasma: ni dulces hay
+💀 ➛ Chayita: ni dulces hay
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             return conn.sendMessage(m.chat, { text: vacio }, { quoted: m })
         }
 
-        let txt = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let txt = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ﹒ YOUTUBE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -93,26 +93,26 @@ ${results.map((v, i) => {
         }).join('\n\n')}
 
 ━━━━━━━━━━━
-── *📋 INFORMACIÓN* ╏ 🦇
+── *📋 INFORMACIÓN* ╏ 🎀
 👤 ➛ Solicitado por: ${user}
 👥 ➛ Grupo: *${groupName}*
-👻 ➛ Buscado por fantasma
+👻 ➛ Buscado por Chayita
 
 ── *💡 TIP* ╏ 🕯️
 ➛.ytmp4 + link
 ➛.ytmp3 + link
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
 
         await conn.sendMessage(m.chat, { text: txt, mentions: [m.sender] }, { quoted: m })
-        await react('🎃')
+        await react('🎀')
 
     } catch (e) {
         console.error(e)
         await react('💀')
-        let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ BUSCAR ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -122,10 +122,10 @@ ${results.map((v, i) => {
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ No se pudo realizar la búsqueda
 🔧 ➛ Intenta más tarde
-💀 ➛ Fantasma se desmayó buscando
+💀 ➛ Chayita se desmayó buscando
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         conn.sendMessage(m.chat, { text: error }, { quoted: m })
     }
