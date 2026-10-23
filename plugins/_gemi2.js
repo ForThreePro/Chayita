@@ -14,7 +14,7 @@ let audios = [
 
 // MENSAJES - Van al final
 let mensajes = [
-    '‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n👻 Aquí tienes tu audio embrujado bro 🎃',
+    '‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n👻 Aquí tienes tu audio embrujado bro 🎃',
 ]
 
 let indice = 0
@@ -29,7 +29,7 @@ let handler = async (m, { conn }) => {
     indice = (indice + 1)
 
     try {
-        await m.react('🎃')
+        await m.react('🎀')
 
         // 1. DESCARGAR Y ENVIAR VIDEO PRIMERO
         let resVideo = await axios.get(videoUrl, { responseType: 'arraybuffer', timeout: 120000 })
@@ -38,7 +38,7 @@ let handler = async (m, { conn }) => {
         await conn.sendMessage(m.chat, {
             video: videoBuffer,
             mimetype: 'video/mp4',
-            caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 ﹒ GEMIDOS ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n👻 Video maldito enviado`
+            caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀 ﹒ GEMIDOS ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n👻 Video maldito enviado`
         }, { quoted: m })
 
         await new Promise(resolve => setTimeout(resolve, 800))
@@ -58,11 +58,11 @@ let handler = async (m, { conn }) => {
         // 3. ENVIAR MENSAJE AL FINAL
         await conn.reply(m.chat, texto, m)
 
-        await m.react('🎃')
+        await m.react('🎀')
 
     } catch (err) {
         await m.react('💀')
-        await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Error embrujado: ${err.message || err}`)
+        await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Error embrujado: ${err.message || err}`)
     }
 }
 
