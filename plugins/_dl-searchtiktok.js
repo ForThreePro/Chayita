@@ -12,8 +12,8 @@ let ttCache = new Map()
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-  const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n꒰ ◞⁺⊹ ．${fecha}\n`
-  const footer = `\n━━━━━━━━━━━━━━━\n🎃 *LUX X YALLICO - HALLOWEEN* 🦇`
+  const head = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n꒰ ◞⁺⊹ ．${fecha}\n`
+  const footer = `\n━━━━━━━━━━━━━━━\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`
   const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
 
   if (!text) return conn.reply(m.chat, head + `\n💀 Usa: *${usedPrefix + command} Goku Black*` + footer, m)
@@ -57,10 +57,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       let outF = path.join(tmpdir(), `out_${Date.now()}.mp4`)
       fs.writeFileSync(inF, buf)
       try { execSync(`ffmpeg -y -i "${inF}" -c copy -movflags +faststart "${outF}"`) } catch { fs.copyFileSync(inF, outF) }
-      let cap = head + `\n‧˚꒰🦇୭ *PINVID - ${text}* 🎃\n` + footer
+      let cap = head + `\n‧˚꒰🎀୭ *PINVID - ${text}* 🎃\n` + footer
       await conn.sendFile(m.chat, outF, 'pinvid.mp4', cap, m, false, { mimetype: 'video/mp4' })
       try { fs.unlinkSync(inF); fs.unlinkSync(outF) } catch {}
-      await react('🎃')
+      await react('🎀')
       return
     }
 
@@ -78,11 +78,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       if (!imgs.length) throw new Error('No hay imágenes')
 
       for (let i = 0; i < imgs.length; i++) {
-        let cap = i === 0? head + `\n‧˚꒰🦇୭ *PINTEREST - ${text}* 🎃\n\n꒰ 👻 ꒱ Resultados para *${text}*\n` + footer : `꒰ 🦇 ꒱ ${i+1}/5 - ${text}`
+        let cap = i === 0? head + `\n‧˚꒰🎀୭ *PINTEREST - ${text}* 🎃\n\n꒰ 👻 ꒱ Resultados para *${text}*\n` + footer : `꒰ 🎀 ꒱ ${i+1}/5 - ${text}`
         await conn.sendFile(m.chat, imgs[i], 'pin.jpg', cap, m)
         await new Promise(r => setTimeout(r, 400))
       }
-      await react('🎃')
+      await react('🎀')
       return
     }
 
@@ -97,9 +97,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       let url = v.dl || v.play || v.hdplay || v.video || v.url
       cache.push(url); if (cache.length > 20) cache.shift()
       ttCache.set(m.chat, cache)
-      let cap = head + `\n‧˚꒰🦇୭ *TTSEARCH - ${text}* 🎃\n` + footer
+      let cap = head + `\n‧˚꒰🎀୭ *TTSEARCH - ${text}* 🎃\n` + footer
       await conn.sendFile(m.chat, url, 'tt.mp4', cap, m)
-      await react('🎃')
+      await react('🎀')
       return
     }
 
@@ -108,7 +108,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       let dl = v.dl || v.url
       let title = v.name || v.title || text
       await conn.sendMessage(m.chat, { document: { url: dl }, mimetype: 'application/vnd.android.package-archive', fileName: `${title.replace(/[^a-z0-9]/gi,'_')}.apk` }, { quoted: m })
-      await react('🎃')
+      await react('🎀')
       return
     }
 
