@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
         let link = await conn.groupInviteCode(m.chat)
         let groupMetadata = await conn.groupMetadata(m.chat)
 
-        let texto = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let texto = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐋𝐈𝐍𝐊 ﹒ DEL GRUPO ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -21,24 +21,24 @@ let handler = async (m, { conn }) => {
 
 ── *📊 INFORMACIÓN* ╏ 🎃
 👥 ➛ Grupo: *${groupMetadata.subject}*
-👻 ➛ Fantasma te pasa el link
+👻 ➛ Chayita te pasa el link
 
-── *🔗 ENLACE* ╏ 🦇
+── *🔗 ENLACE* ╏ 🎀
 https://chat.whatsapp.com/${link}
 
 ── *📝 NOTAS* ╏ 🕯️
 🔒 ➛ Solo admins pueden resetear el link
 ⚠️ ➛ No lo compartas con desconocidos
-🎃 ➛ Lux X Yallico lo aprueba
+🎀 ➛ Chayita Bot lo aprueba
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
 
         await conn.sendMessage(m.chat, { text: texto }, { quoted: m })
     } catch (e) {
         await react('💀')
-        let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐎𝐑 ﹒ LINK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -48,10 +48,10 @@ https://chat.whatsapp.com/${link}
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ No pude obtener el link
 🔒 ➛ ¿Soy admin del grupo?
-👻 ➛ Fantasma dice: hazme admin pe
+👻 ➛ Chayita dice: hazme admin pe
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         conn.sendMessage(m.chat, { text: error }, { quoted: m })
     }
