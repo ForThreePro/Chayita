@@ -12,10 +12,10 @@ const handler = async (m, { conn, args, isAdmin, isOwner }) => {
 
   if (/on/i.test(args[0])) {
     chat.bienvenida = true
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n🟢 Bienvenida activada - Fantasma despertó\n꒰ ◞⁺⊹ ．${fecha}` }, { quoted: m })
+    return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🟢 Bienvenida activada - Chayita despertó\n꒰ ◞⁺⊹ ．${fecha}` }, { quoted: m })
   } else if (/off/i.test(args[0])) {
     chat.bienvenida = false
-    return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n🔴 Bienvenida desactivada - Fantasma a dormir\n꒰ ◞⁺⊹ ．${fecha}` }, { quoted: m })
+    return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🔴 Bienvenida desactivada - Chayita a dormir\n꒰ ◞⁺⊹ ．${fecha}` }, { quoted: m })
   }
 }
 
@@ -33,7 +33,7 @@ handler.before = async function (m, { conn, groupMetadata }) {
   const userJid = m.messageStubParameters?.[0] || m.participant
   if (!userJid) return!0
 
-  const DEFAULT_IMG = 'https://files.evogb.win/KMrBYL.jpg'
+  const DEFAULT_IMG = 'https://files.evogb.win/MklTGD.jpg'
   let imgBuffer = null
   try {
     let userPP = await conn.profilePictureUrl(userJid, 'image')
@@ -57,39 +57,39 @@ handler.before = async function (m, { conn, groupMetadata }) {
     case WAMessageStubType.GROUP_PARTICIPANT_ADD:
       audio = chat.audiowelcome
       txt = chat.customWelcome? chat.customWelcome.replace(/@user/gi, userTag).replace(/@group/gi, groupName).replace(/@desc/gi, groupDesc) :
-`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 ﹒ WELCOME ：✿ 。
 
 👻 ➛ ${userTag} apareció en *${groupName}*
 👥 ➛ Alma N°: *${membersCount}*
-🎃 ➛ Fantasma dice: trae dulces
+🎃 ➛ Chayita dice: trae dulces
 
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`
       break
     case WAMessageStubType.GROUP_PARTICIPANT_LEAVE:
       audio = chat.audiobye
       txt = chat.customBye? chat.customBye.replace(/@user/gi, userTag).replace(/@group/gi, groupName) :
-`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐏𝐄𝐃𝐈𝐃𝐀 ﹒ BYE ：✿ 。
 
 💨 ➛ ${userTag} desapareció de *${groupName}*
-💀 ➛ Fantasma: "Uno menos que pide dulces"
+💀 ➛ Chayita: "Uno menos que pide dulces"
 
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`
       break
     case WAMessageStubType.GROUP_PARTICIPANT_REMOVE:
       audio = chat.audiokick
       txt = chat.customKick? chat.customKick.replace(/@user/gi, userTag).replace(/@group/gi, groupName) :
-`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐗𝐏𝐔𝐋𝐒𝐀𝐃𝐎 ﹒ KICK ：✿ 。
 
 🥊 ➛ ${userTag} fue exorcizado de *${groupName}*
-👻 ➛ Fantasma: "Se robó mis dulces"
+👻 ➛ Chayita: "Se robó mis dulces"
 
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`
       break
   }
 
