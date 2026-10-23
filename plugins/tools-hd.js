@@ -31,7 +31,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!/image/.test(mime)) {
-    return conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗜𝗖𝗢 𓆪 🍕\n*Garfield Halloween Edition*\n\n💅 Responde a una imagen con *${usedPrefix}hd*\n\n> 🍕 Hará: x2 y luego automático a x4`, m)
+    return conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n*Halloween Coquette Edition*\n\n💅 Responde a una imagen con *${usedPrefix}hd*\n\n> 🎀 Hará: x2 y luego automático a x4`, m)
   }
 
   let key = 'proyectsV2'
@@ -41,26 +41,26 @@ let handler = async (m, { conn, usedPrefix }) => {
     let media = await q.download()
 
     // PASO 1: x2
-    await conn.reply(m.chat, '‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n👻 *PASO 1/2:* Mejorando a x2...', m)
+    await conn.reply(m.chat, '‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n👻 *PASO 1/2:* Mejorando a x2...', m)
     let firstHD = await stellarUpscale(media, 2, key)
 
     // PASO 2: x2 de nuevo = x4 total
-    await conn.reply(m.chat, '‧˚꒰✨୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n🎃 *PASO 2/2:* Mejorando a x4 automático...', m)
+    await conn.reply(m.chat, '‧˚꒰✨୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🎀 *PASO 2/2:* Mejorando a x4 automático...', m)
     let finalHD = await stellarUpscale(firstHD, 2, key)
 
     await conn.sendFile(m.chat, finalHD, 'hd-x4.jpg', 
-`‧˚꒰🎃୭ 𓆩 *HD x4 COMPLETADO* 𓆪 🍕
+`‧˚꒰🎀୭ 𓆩 *HD x4 COMPLETADO* 𓆪 🐭
 
 > ✿ x2 → x4 automático
-> ✿ Lux X Yallico | Garfield Halloween
+> ✿ Chayita Bot | Halloween Coquette
 > ✿ Stellar API`, m)
 
-    await conn.sendMessage(m.chat, { react: { text: '🎃', key: m.key } })
+    await conn.sendMessage(m.chat, { react: { text: '🎀', key: m.key } })
 
   } catch (e) {
     console.error(e)
     await conn.sendMessage(m.chat, { react: { text: '💔', key: m.key } })
-    conn.reply(m.chat, `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🍕\n\n💔 Error: ${e.message}`, m)
+    conn.reply(m.chat, `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💔 Error: ${e.message}`, m)
   }
 }
 
