@@ -6,7 +6,7 @@ let mutedUsers = new Set()
 let handler = async (m, { conn, command, participants }) => {
     const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
     const react = async (t) => { try { await conn.sendMessage(m.chat, { react: { text: t, key: m.key } }) } catch {} }
-    const head = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n꒰ ◞⁺⊹ ．${fecha}\n`
+    const head = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n꒰ ◞⁺⊹ ．${fecha}\n`
 
     let mentionedJid = m.mentionedJid[0]? m.mentionedJid[0] : m.quoted? m.quoted.sender : false
     if (!mentionedJid) { await react('💀'); return m.reply(head+`\n💀 Menciona o responde a un usuario\nEj: *.mute @user*`, m) }
@@ -21,7 +21,7 @@ let handler = async (m, { conn, command, participants }) => {
     } else {
         if (!mutedUsers.has(mentionedJid)) { await react('⚠️'); return m.reply(head+`\n⚠️ No está en la cripta`, m) }
         mutedUsers.delete(mentionedJid); await react('🔊')
-        return conn.sendMessage(m.chat, { text: head+`\n🔊 Liberado del hechizo: @${mentionedJid.split('@')[0]} 🎃`, mentions:[mentionedJid] }, { quoted:m })
+        return conn.sendMessage(m.chat, { text: head+`\n🔊 Liberado del hechizo: @${mentionedJid.split('@')[0]} 🎀`, mentions:[mentionedJid] }, { quoted:m })
     }
 }
 
