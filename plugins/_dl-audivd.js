@@ -18,23 +18,23 @@ const handler = async (m, { conn }) => {
     const mime = (q.msg || q).mimetype || ''
 
     if (!/video/.test(mime)) {
-        let menuUso = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let menuUso = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐇𝐄𝐑𝐀𝐌𝐈𝐄𝐍𝐓𝐀 ﹒ AUDIVD ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
 
   ꒱ ׁ. ᘏ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 ׅ 𝆬 ָ֢ ෆ
-🎃 ࣪ ꕀ.audivd ˚. ᵎᵎ
+🎀 ࣪ ꕀ.audivd ˚. ᵎᵎ
 > *"Sacando el audio como fantasma saca almas"*
 
 .⃟𖥔 ݁. 𖦹˙— \`\`HERRAMIENTA HALLOWEEN\`\` ⚙️ —˙𖦹.꒷
 
 ── *📝 DESCRIPCIÓN* ╏ 🎃
-🎃 ➛ Extrae el audio de un video
-🦇 ➛ Convierte a MP3 192kbps
-👻 ➛ Fantasma Garfield escuchando
+🎀 ➛ Extrae el audio de un video
+🐭 ➛ Convierte a MP3 192kbps
+👻 ➛ Chayita coquette escuchando
 
-── *📖 USO* ╏ 🦇
+── *📖 USO* ╏ 🎀
 1️⃣ ➛ Responde a un video con:.*audivd*
 2️⃣ ➛ O usa el alias:.*audio*
 
@@ -43,7 +43,7 @@ const handler = async (m, { conn }) => {
 🎃 ➛ Calidad calabaza premium
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 *Owner*: @${ownerNum}
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: menuUso, mentions: [ownerNum + '@s.whatsapp.net'] }, { quoted: m })
@@ -52,8 +52,8 @@ const handler = async (m, { conn }) => {
     let tempVideo
     let tempAudio
     try {
-        await react(conn, m, "🎃")
-        await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        await react(conn, m, "🎀")
+        await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐏𝐑𝐎𝐂𝐄𝐒𝐀𝐍𝐃𝐎 ﹒ AUDIVD ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -64,10 +64,10 @@ const handler = async (m, { conn }) => {
 📥 ➛ Descargando video embrujado...
 🎵 ➛ Extrayendo alma del audio...
 ⚙️ ➛ Convirtiendo a MP3 maldito...
-👻 ➛ Fantasma espera con dulces...
+👻 ➛ Chayita espera con dulces...
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
 
         const videoBuffer = await q.download()
@@ -100,8 +100,8 @@ const handler = async (m, { conn }) => {
             ptt: false
         }, { quoted: m })
 
-        await react(conn, m, "🎃")
-        let menuOk = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        await react(conn, m, "🎀")
+        let menuOk = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎 ﹒ AUDIVD ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -112,14 +112,14 @@ const handler = async (m, { conn }) => {
 ✅ ➛ Audio exorcizado correctamente
 📌 ➛ Formato: *MP3 192kbps*
 📌 ➛ Calidad: *44.1kHz Stereo*
-👻 ➛ Fantasma aprueba este audio
+👻 ➛ Chayita aprueba este audio
 
-── *📥 DESCARGA* ╏ 🦇
+── *📥 DESCARGA* ╏ 🎀
 ⬇️ ➛ Archivo enviado arriba
 🍬 ➛ Listo para escuchar en noche de brujas
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: menuOk }, { quoted: m })
 
@@ -127,7 +127,7 @@ const handler = async (m, { conn }) => {
         console.error(e)
         await react(conn, m, "💀")
         const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
-        let menuErr = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        let menuErr = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ AUDIVD ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -144,7 +144,7 @@ const handler = async (m, { conn }) => {
 🎃 ➛ Intenta con menos peso que una calabaza
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
         return conn.sendMessage(m.chat, { text: menuErr }, { quoted: m })
     } finally {
@@ -154,7 +154,7 @@ const handler = async (m, { conn }) => {
 }
 
 handler.help = ['audivd']
-handler.tags = ['tools', 'halloween']
+handler.tags = ['tools']
 handler.command = ['audivd', 'audio']
 handler.limit = true
 export default handler
