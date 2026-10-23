@@ -9,7 +9,7 @@ const handler = async (m, { conn, command }) => {
 
   if (!m.mentionedJid[0] &&!m.quoted) {
     await react('💀')
-    let texto = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let texto = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐀𝐃𝐌𝐈𝐍𝐈𝐒𝐓𝐑𝐀𝐂𝐈𝐎𝐍 ﹒ PROMOTE ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -19,9 +19,9 @@ const handler = async (m, { conn, command }) => {
 ── *📖 USO* ╏ 🎃
 ➛ Menciona a un usuario
 ➛ Responde al mensaje del usuario
-👻 ➛ Fantasma: menciona pe
+👻 ➛ Chayita: menciona pe
 
-── *💡 EJEMPLOS* ╏ 🦇
+── *💡 EJEMPLOS* ╏ 🎀
 ➛.promote @user
 ➛.demote @user
 
@@ -30,7 +30,7 @@ const handler = async (m, { conn, command }) => {
 👻 ➛ Solo los que traen dulces
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: texto }, { quoted: m })
   }
@@ -38,13 +38,13 @@ const handler = async (m, { conn, command }) => {
   let user = m.mentionedJid[0]? m.mentionedJid[0] : m.quoted.sender
   let action = command === 'promote' || command === 'promover' || command === 'daradmin'? 'promote' : 'demote'
 
-  await react(action === 'promote'? '🎃' : '💀')
+  await react(action === 'promote'? '🎀' : '💀')
 
   try {
     await conn.groupParticipantsUpdate(m.chat, [user], action)
   } catch {
     await react('💀')
-    let error = `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    let error = `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐎𝐑 ﹒ ADMIN ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -54,31 +54,31 @@ const handler = async (m, { conn, command }) => {
 ── *📝 AVISO* ╏ 🎃
 ❌ ➛ No se pudo completar la acción
 🔒 ➛ Verifica permisos del bot
-👻 ➛ Fantasma dice: el bot no es admin pe
+👻 ➛ Chayita dice: el bot no es admin pe
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
     return conn.sendMessage(m.chat, { text: error }, { quoted: m })
   }
 
   let msgAccion = action === 'promote'
-? `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+? `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐏𝐑𝐎𝐌𝐎𝐕𝐈𝐃𝐎 ﹒ NUEVO ADMIN ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
 
-.⃟𖥔 ݁. 𖦹˙— \`\`EXITO\`\` 🎃 —˙𖦹.꒷
+.⃟𖥔 ݁. 𖦹˙— \`\`EXITO\`\` 🎀 —˙𖦹.꒷
 
 ── *📊 INFORMACIÓN* ╏ 🎃
-🎃 ➛ Nuevo Admin: @${user.split('@')[0]}
+🎀 ➛ Nuevo Admin: @${user.split('@')[0]}
 👤 ➛ Por: @${m.sender.split('@')[0]}
-👻 ➛ Fantasma aprobó al nuevo admin
+👻 ➛ Chayita aprobó al nuevo admin
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
-    : `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+    : `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐆𝐑𝐀𝐃𝐀𝐃𝐎 ﹒ QUITAR ADMIN ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -88,10 +88,10 @@ const handler = async (m, { conn, command }) => {
 ── *📊 INFORMACIÓN* ╏ 🎃
 💀 ➛ Ya no es Admin: @${user.split('@')[0]}
 👤 ➛ Por: @${m.sender.split('@')[0]}
-👻 ➛ Fantasma le quitó el poder
+👻 ➛ Chayita le quitó el poder
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
 
   await conn.sendMessage(m.chat, { text: msgAccion, mentions: [user, m.sender] }, { quoted: m })
