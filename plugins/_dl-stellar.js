@@ -22,7 +22,7 @@ let handler = async (m, { conn, command }) => {
     text = text.replace(`.${command}`, '').trim()
 
     if (!text) {
-        return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒 ﹒ DESCARGAS ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -35,16 +35,16 @@ let handler = async (m, { conn, command }) => {
 
 ── *📝 COMANDOS* ╏ 🎃
 1️⃣ ➛.*play1* <nombre de canción>
-   🎃 ➛ Descarga audio de YouTube MP3
-   👻 ➛ Fantasma pone la música
+   🎀 ➛ Descarga audio de YouTube MP3
+   👻 ➛ Chayita pone la música
 
 2️⃣ ➛.*ttmp3* <link de tiktok>
    🎵 ➛ Descarga audio de TikTok MP3
-   🦇 ➛ TikTok sabor calabaza
+   🐭 ➛ TikTok sabor calabaza
 
 3️⃣ ➛.*fb* <link de facebook>
    📹 ➛ Descarga video de Facebook
-   💀 ➛ Hasta el fantasma ve FB
+   💀 ➛ Hasta Chayita ve FB
 
 ── *💡 EJEMPLOS* ╏ 🕯️
 ➛.*play1* despacito
@@ -52,15 +52,15 @@ let handler = async (m, { conn, command }) => {
 ➛.*fb* https://facebook.com/watch?v=xxx
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 *Owner*: @${ownerNum}
 ━━━━━━━━━━━`, mentions: [ownerNum + '@s.whatsapp.net'] }, { quoted: m })
     }
 
-    await react(conn, m, '🎃')
+    await react(conn, m, '🎀')
     try {
         if (command === 'play1') {
-            await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎 ﹒ PLAY1 ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -70,10 +70,10 @@ let handler = async (m, { conn, command }) => {
 ── *📊 ESTADO* ╏ 🎃
 🔍 ➛ Buscando canción embrujada...
 ⬇️ ➛ Descargando audio MP3...
-👻 ➛ Fantasma eligiendo tema...
+👻 ➛ Chayita eligiendo tema...
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
             const searchResult = await ytsearch(text)
             if (!searchResult.videos.length) throw new Error("No se encontró la canción.")
@@ -85,7 +85,7 @@ let handler = async (m, { conn, command }) => {
             if (!dl) throw new Error('No se pudo descargar el audio de YT')
 
             const audioBuffer = await getBuffer(dl)
-            await react(conn, m, '🦇')
+            await react(conn, m, '🎀')
             await conn.sendMessage(m.chat, {
                 audio: audioBuffer,
                 mimetype: 'audio/mpeg',
@@ -94,7 +94,7 @@ let handler = async (m, { conn, command }) => {
         }
 
         if (command === 'ttmp3') {
-            await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎 ﹒ TTMP3 ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -103,10 +103,10 @@ let handler = async (m, { conn, command }) => {
 
 ── *📊 ESTADO* ╏ 🎃
 ⬇️ ➛ Descargando audio de TikTok...
-🦇 ➛ Robando audio como dulces...
+🐭 ➛ Robando audio como dulces...
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
             const apiUrl = `${api.url}/dl/tiktokmp3?url=${encodeURIComponent(text)}&key=${api.key}`
             const res = await fetch(apiUrl).then(r => r.json())
@@ -116,7 +116,7 @@ let handler = async (m, { conn, command }) => {
             if (!dl) throw new Error('No se pudo descargar. Link mal o privado')
 
             const audioBuffer = await getBuffer(dl)
-            await react(conn, m, '🦇')
+            await react(conn, m, '🎀')
             await conn.sendMessage(m.chat, {
                 audio: audioBuffer,
                 mimetype: 'audio/mpeg',
@@ -125,7 +125,7 @@ let handler = async (m, { conn, command }) => {
         }
 
         if (command === 'fb' || command === 'facebook') {
-            await m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+            await m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎 ﹒ FACEBOOK ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -134,10 +134,10 @@ let handler = async (m, { conn, command }) => {
 
 ── *📊 ESTADO* ╏ 🎃
 ⬇️ ➛ Descargando video de Facebook...
-👻 ➛ Fantasma: "Odio los lunes, no los videos"
+👻 ➛ Chayita: "Odio los lunes, no los videos"
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`)
             const apiUrl = `${api.url}/dl/facebook?url=${encodeURIComponent(text)}&key=${api.key}`
             const res = await fetch(apiUrl)
@@ -152,10 +152,10 @@ let handler = async (m, { conn, command }) => {
                 videoBuffer = Buffer.from(await res.arrayBuffer())
             }
 
-            await react(conn, m, '🦇')
+            await react(conn, m, '🎀')
             await conn.sendMessage(m.chat, {
                 video: videoBuffer,
-                caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+                caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎 ﹒ FACEBOOK ：✿ 。
 
@@ -164,20 +164,20 @@ let handler = async (m, { conn, command }) => {
 ── *📊 RESULTADO* ╏ 🎃
 ✅ ➛ Video exorcizado correctamente
 📥 ➛ Disfrútalo
-👻 ➛ Fantasma lo aprueba
+👻 ➛ Chayita lo aprueba
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━`
             }, { quoted: m })
         }
 
-        await react(conn, m, '🎃')
+        await react(conn, m, '🎀')
     } catch (e) {
         await react(conn, m, '💀')
         const fecha = moment.tz('America/Lima').format('DD/MM/YYYY hh:mm:ss a')
         console.log("ERROR:", e)
-        return conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇
+        return conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭
 
 ⤷ ┇ 𝐄𝐑𝐑𝐎𝐑 ﹒ ${command.toUpperCase()} ：✿ 。
 ꒰ ◞⁺⊹ ．${fecha}
@@ -186,7 +186,7 @@ let handler = async (m, { conn, command }) => {
 
 ── *📝 DESCRIPCIÓN* ╏ 🎃
 ❌ ➛ ${e.message}
-💀 ➛ El fantasma se quedó sin dulces
+💀 ➛ Chayita se quedó sin dulces
 
 ── *💡 SOLUCIÓN* ╏ 🕯️
 🔧 ➛ Verifica que el link sea válido
@@ -194,7 +194,7 @@ let handler = async (m, { conn, command }) => {
 🎃 ➛ Intenta de nuevo, como pedir dulces
 
 ━━━━━━━━━━━
-🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇
+🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭
 ━━━━━━━━━━━` }, { quoted: m })
     }
 }
