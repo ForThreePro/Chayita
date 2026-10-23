@@ -1,4 +1,3 @@
-
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 moment.locale('es')
@@ -57,28 +56,28 @@ let handler = async (m, { conn, participants }) => {
         let pp = await getAvatar(who)
         let apiUrl = `https://api.stellarwa.xyz/generate/horny?avatar=${encodeURIComponent(pp)}&key=${key}`
         try {
-            await react('🎃')
-            await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⤷ ┇ 𝐇𝐎𝐑𝐍𝐘 ﹒ HORNY ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`GENERANDO\`\` 😏 —˙𖦹.꒷\n\n👻 ➛ Generando... Fantasma mirando 👀`, mentions: [who] })
+            await react('🎀')
+            await conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⤷ ┇ 𝐇𝐎𝐑𝐍𝐘 ﹒ HORNY ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`GENERANDO\`\` 😏 —˙𖦹.꒷\n\n👻 ➛ Generando... Fantasma mirando 👀`, mentions: [who] })
             let res = await stellarFetch(apiUrl)
             if(!res.ok) throw new Error("Status: " + res.status)
             let buffer = await res.buffer()
-            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n🔥 @${getMention(who)}\n\n🎃 *LUX X YALLICO - HALLOWEEN EDITION* 🦇`, mentions: [who] })
+            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🔥 @${getMention(who)}\n\n🎀 *CHAYITA BOT - HALLOWEEN COQUETTE* 🐭`, mentions: [who] })
         } catch (e) {
             await react('💀')
-            m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Error 500: La API se fue a pedir dulces. Intenta de nuevo`)
+            m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Error 500: La API se fue a pedir dulces. Intenta de nuevo`)
         }
     }
 
     // ===== SHIP =====
     if (m.text?.includes('ship')) {
-        if (!m.isGroup) return m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Solo grupos pe, como fantasmas solo en grupo`)
+        if (!m.isGroup) return m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Solo grupos pe, como fantasmas solo en grupo`)
         let members = participants.map(u => toJid(u.id))
         let user1, user2
         if (m.mentionedJid.length >= 2) { user1 = toJid(m.mentionedJid[0]); user2 = toJid(m.mentionedJid[1]) }
         else { user1 = members[Math.floor(Math.random() * members.length)]; user2 = members[Math.floor(Math.random() * members.length)]; while(user1 === user2) user2 = members[Math.floor(Math.random() * members.length)] }
 
         await react('💘')
-        await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⤷ ┇ 𝐒𝐇𝐈𝐏 ﹒ SHIP ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`CALCULANDO\`\` 💘 —˙𖦹.꒷\n\n👻 ➛ Calculando amor... Fantasma shippea 🕸️`, mentions: [user1, user2] })
+        await conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⤷ ┇ 𝐒𝐇𝐈𝐏 ﹒ SHIP ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`CALCULANDO\`\` 💘 —˙𖦹.꒷\n\n👻 ➛ Calculando amor... Chayita shippea 🕸️`, mentions: [user1, user2] })
         try {
             let avatar1 = await getAvatar(user1); let avatar2 = await getAvatar(user2)
             let apiUrl = `https://api.stellarwa.xyz/generate/ship?avatar1=${encodeURIComponent(avatar1)}&avatar2=${encodeURIComponent(avatar2)}&background=${encodeURIComponent(defaultBg)}&key=${key}`
@@ -86,10 +85,10 @@ let handler = async (m, { conn, participants }) => {
             if(!res.ok) throw new Error("Status: " + res.status)
             let buffer = await res.buffer()
             let porcentaje = Math.floor(Math.random() * 101)
-            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💘 ${porcentaje}% - Fantasma dice: ${porcentaje > 70? 'almas gemelas malditas' : 'mejor amigos embrujados'}\n\n🎃 *HALLOWEEN EDITION* 🦇`, mentions: [user1, user2] })
+            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💘 ${porcentaje}% - Chayita dice: ${porcentaje > 70? 'almas gemelas malditas' : 'mejor amigos embrujados'}\n\n🎀 *HALLOWEEN COQUETTE* 🐭`, mentions: [user1, user2] })
         } catch (e) {
             await react('💀')
-            m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Error 500: La API se asustó`)
+            m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Error 500: La API se asustó`)
         }
     }
 
@@ -101,15 +100,15 @@ let handler = async (m, { conn, participants }) => {
         let apiUrl = `https://api.stellarwa.xyz/generate/security?avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(defaultBg)}&createdTimestamp=${createdTimestamp}&key=${key}`
 
         await react('🔍')
-        await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⤷ ┇ 𝐒𝐄 𝐁𝐔𝐒𝐂𝐀 ﹒ SECURITY ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`BUSCANDO\`\` 🚨 —˙𖦹.꒷\n\n👻 ➛ Generando... Se robó los dulces 🚨`, mentions: [who] })
+        await conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⤷ ┇ 𝐒𝐄 𝐁𝐔𝐒𝐂𝐀 ﹒ SECURITY ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`BUSCANDO\`\` 🚨 —˙𖦹.꒷\n\n👻 ➛ Generando... Se robó los dulces 🚨`, mentions: [who] })
         try {
             let res = await stellarFetch(apiUrl)
             if(!res.ok) throw new Error("Status: " + res.status)
             let buffer = await res.buffer()
-            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n🚨 @${getMention(who)} - Buscado por robar dulces de Halloween\n\n🎃 *HALLOWEEN EDITION* 🦇`, mentions: [who] })
+            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n🚨 @${getMention(who)} - Buscado por robar dulces de Halloween\n\n🎀 *HALLOWEEN COQUETTE* 🐭`, mentions: [who] })
         } catch (e) {
             await react('💀')
-            m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Error 500: ${e.message}`)
+            m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Error 500: ${e.message}`)
         }
     }
 
@@ -125,15 +124,15 @@ let handler = async (m, { conn, participants }) => {
         let apiUrl = `https://api.stellarwa.xyz/generate/rank2?username=${encodeURIComponent(name)}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(defaultBg)}&level=${level}&rank=${rank}&currxp=${currxp}&needxp=${needxp}&key=${key}`
 
         await react('📊')
-        await conn.sendMessage(m.chat, { text: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n⤷ ┇ 𝐑𝐀𝐍𝐊 ﹒ TARJETA ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`GENERANDO\`\` 📊 —˙𖦹.꒷\n\n👻 ➛ Generando nivel... Nivel fantasma 🎃`, mentions: [who] })
+        await conn.sendMessage(m.chat, { text: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n⤷ ┇ 𝐑𝐀𝐍𝐊 ﹒ TARJETA ：✿ 。\n꒰ ◞⁺⊹ ．${fecha}\n\n.⃟𖥔 ݁. 𖦹˙— \`\`GENERANDO\`\` 📊 —˙𖦹.꒷\n\n👻 ➛ Generando nivel... Nivel fantasma 🎃`, mentions: [who] })
         try {
             let res = await stellarFetch(apiUrl)
             if(!res.ok) throw new Error("Status: " + res.status)
             let buffer = await res.buffer()
-            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n📊 Nivel: ${level} - Nivel Fantasma: Pro en sustos\n\n🎃 *HALLOWEEN EDITION* 🦇`, mentions: [who] })
+            await conn.sendMessage(m.chat, { image: buffer, caption: `‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n📊 Nivel: ${level} - Nivel Fantasma: Pro en sustos\n\n🎀 *HALLOWEEN COQUETTE* 🐭`, mentions: [who] })
         } catch (e) {
             await react('💀')
-            m.reply(`‧˚꒰🎃୭ 𓆩 𝗟𝗨𝗫 𝗫 𝗬𝗔𝗟𝗟𝗜𝗖𝗢 𓆪 🦇\n\n💀 Error 500: ${e.message}`)
+            m.reply(`‧˚꒰🎀୭ 𓆩 𝗖𝗛𝗔𝗬𝗜𝗧𝗔 𝗕𝗢𝗧 𓆪 🐭\n\n💀 Error 500: ${e.message}`)
         }
     }
 }
